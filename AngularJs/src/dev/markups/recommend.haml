@@ -1,0 +1,146 @@
+.container-fulid{"ng-controller"=>"recomCtrl"}
+    .container-fulid
+        .header-recom.fixed-top 
+            .container
+                %h1{:style=>"color: #FFFFFF;"} {{ citytype_th }}
+                .header-display846
+                    .row
+                        .col-8
+                            .row.mt-4
+                                .col-12
+                                    %h2 ค่าการปล่อยก๊าซเรือนกระจกจริง
+                                        %span {{ gasReal | number:2 }} tCO<sub>2</sub>eq
+                            .row
+                                .col-12
+                                    %h2 ค่าการปล่อยก๊าซเรือนกระจกอ้างอิง
+                                        %span {{ gasRef | number:2 }} tCO<sub>2</sub>eq
+                        .col-4
+                            %center
+                                .grade-recom{:style=>"background:{{ ratings.color }};"}
+                                    %h2  {{ ratings.grade }}
+
+                .header-display
+                    .row
+                        .col-8
+                            .row.mt-4
+                                .col-12 
+                                    %h3.color-normal ค่าการปล่อยก๊าซเรือนกระจกจริง
+                                .col-12
+                                    %h3 {{ gasReal | number:2 }} tCO<sub>2</sub>eq
+                            .row
+                                .col-12
+                                    %h3.color-normal ค่าการปล่อยก๊าซเรือนกระจกอ้างอิง
+                                .col-12
+                                    %h3 {{ gasRef | number:2 }} tCO<sub>2</sub>eq
+                        .col-4
+                            %center
+                                .grade-recom{:style=>"background:{{ ratings.color }};"}
+                                    %h2  {{ ratings.grade }}
+
+        .container.body-recom        
+            %ul.nav.nav-tabs#myTab{:role=>"tablist"}
+                %li.nav-item
+                    %a.nav-link{"ng-click"=>"selectTapping(citytype,'energy')","ng-class"=>"tapping == 'energy' ? 'active' : ''"} โครงการด้านพลังงาน
+                %li.nav-item
+                    %a.nav-link{"ng-click"=>"selectTapping(citytype,'waste')","ng-class"=>"tapping == 'waste' ? 'active' : ''"} โครงการการจัดการของเสีย
+                %li.nav-item
+                    %a.nav-link{"ng-click"=>"selectTapping(citytype,'forest')","ng-class"=>"tapping == 'forest' ? 'active' : ''"} โครงการด้านป่าไม้และการเกษตร
+
+            .container
+                %br
+                %h2 มาตรการลดการปล่อยก๊าซเรือนกระจก
+                %h3 กรุณาเลือกเพื่อคำนวณศักยภาพในการลดการปล่อยก๊าซเรือนกระจก
+                %table.table
+                    %thead
+                        %tr
+                            %th.text-center{:style=>"width: 10%","ng-init"=>"selectAll = false"} 
+                                %input#checkAll{:style=>"margin-top: 6;",:type=>"checkbox",:name=>"","ng-checked"=>"exist(show)","ng-model"=>"selectAll","ng-click"=>"checkAll(citytype,tapping)"}
+                            %th{:style=>"width: 60%"}
+                                รายละเอียดมาตรการ
+                            %th{:style=>"width: 15%"} 
+                                %p{:style=>"font-size: 0.8em"} ข้อมูล
+                            %th{:style=>"width: 25%"}
+                                %p{:style=>"font-size: 0.8em"} ปริมาณที่ลดได้ ( tCO<sub>2</sub>eq ต่อปี )
+                    
+                    %tbody{"ng-repeat"=>"show in listRecom(citytype,tapping)"}
+                        %tr{:id=>"fixid-{{ show[0] }}","ng-class"=>"exist(show) ? 'bg-row' : ''"}
+                            %th.text-center{:scope => "row",:style=>"width: 10%"} 
+                                %input{:style=>"margin-top: 6;",:type=>"checkbox",:name=>"","ng-model"=>"selected","ng-checked"=>"exist(show)","ng-click"=>"toggleSelection(show)"}
+                            %td{:style=>"width: 60%"} 
+                                %a.text-measure{:href=>"",:data-toggle=>"modal",:data-target=>".{{show[0]}}"}
+                                    %span {{ $index+1 }}.
+                                        %span{"ng-bind-html"=>"show[1]"} {{ show[1] }}
+                                .modal.fade{:class=>"{{ show[0] }}",:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                                    .modal-dialog.modal-dialog-centered{:role=>"document"}
+                                        .modal-content
+                                            .modal-header
+                                                %h5.modal-title{"ng-bind-html"=>"show[1]"}
+                                                %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                                    %span{:aria-hidden=>"true"}
+                                                        %i{:class=>"material-icons"} close
+                                            .modal-body.text-left
+                                                %p{"ng-bind-html"=>"show[3]"}
+                                            .modal-footer
+                                                %center
+                                                    %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+
+
+                            %td{:style=>"width: 15%"} 
+                                %input.form-control{:type=>"number",:name=>"","ng-value"=>"show[6]","ng-model"=>"selecteds","ng-if"=>"exist(show) ? 'disabled' : ''","ng-keyup"=>"recomCal(show[0],selecteds)"}
+                            %td{:style=>"width: 25%"} 
+                                %span{"ng-if"=>"exist(show) ? 'disabled' : ''"} {{ show[6] * show[2] | number:4 }}
+                .container                
+                    .row.clearfix
+                        .col-12
+                            %h2
+                                %center 
+                                    ศักยภาพในการลดการปล่อยก๊าซเรือนกระจก {{ totalTco2 | number:2 }} tCO<sub>2</sub>eq ต่อปี
+                                %center 
+                                    เทียบเท่าปลูกต้นไม้  {{ ofTrees | number }} ต้น 
+                        .col-12.mt-5
+                            %center
+                                %img.img-fluid{:src=>"img/{{ sumCheckTree(ofTrees) }}.svg",:width=>"750px"}
+            
+                .container
+                    %h2.mt-5 มาตรการแนะนำเพิ่มเติม
+                    %table.table.mt-1{"ng-show"=>"ShowlistRecom(citytype).length != 0"}
+                        %thead
+                            %tr
+                                %th{:style=>"width: 60%"}
+                                    %center
+                                        รายละเอียดมาตรการ
+                                %th{:style=>"width: 10%; font-size: 0.8em;"} 
+                                    %center
+                                        คำอธิบาย
+                                %th{:style=>"width: 10%; font-size: 0.8em;"}
+                                    %center
+                                        ดาวน์โหลด
+                        %tbody{"ng-repeat"=>"showslist in ShowlistRecom(citytype)"}
+                            %tr
+                                %td{:style=>"width: 60%"} {{ $index+1 }}. {{ showslist[1] }}
+                                %td{:style=>"width: 10%"} 
+                                    %center
+                                        %a{:href=>"",:data-toggle=>"modal",:data-target=>".showslist{{showslist[0]}}"}
+                                            %i.material-icons.icon-form-info info
+                                        .modal.fade{:class=>"showslist{{ showslist[0] }}",:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                                            .modal-dialog.modal-dialog-centered{:role=>"document"}
+                                                .modal-content
+                                                    .modal-header
+                                                        %h5.modal-title.text-left {{showslist[1]}} 
+                                                        %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                                            %span{:aria-hidden=>"true"}
+                                                                %i{:class=>"material-icons"} close
+                                                    .modal-body.text-left
+                                                        %p {{ showslist[4] }}
+                                                    .modal-footer
+                                                        %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+
+                                %td{:style=>"width: 10%"}
+                                    %center 
+                                        %a{:href=>"{{ showslist[3] }}"}
+                                            %img.excel.img-fluid{:src=>"img/excel.svg",:width=>"15px"} 
+
+        .footer-recom.fixed-bottom
+            %center
+                %button.btn-ghgcity.shadow-sm{:type=>"button",:value=>"กลับ",:onclick=>"window.history.back();"} กลับ
+                %button.btn-ghgcity.shadow-sm{:type=>"button",:value=>"อีเมลผล","ng-click"=>"submit()"} อีเมลผล

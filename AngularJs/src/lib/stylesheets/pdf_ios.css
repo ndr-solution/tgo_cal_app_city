@@ -1,0 +1,196 @@
+@font-face {
+    font-family: supermarket;
+    src: url('../fonts/supermarket.ttf');
+    font-display: fallback;
+}
+@font-face{
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),local('MaterialIcons-Regular'),url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),url(../fonts/MaterialIcons-Regular.woff) format('woff'),url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+html{
+    font-size: 10px;
+}
+body{
+    font-size: 16px;
+}
+
+.pageA4{
+    position: relative;
+    height: 100%;
+    background: #ffffff;
+    font-family: supermarket;
+}
+
+.logo{
+    width: 240px;
+    height: 240px; 
+}
+h1.title{
+    font-size: 2em
+}
+/* .header-pdf{
+    
+} */
+.footer-pdf{
+    background: #ffffff;
+    position: absolute;
+    bottom: 0px;
+    text-align: left;
+}
+
+.header-left h1{
+    color: #000000;
+    font-size: 3em;
+}
+.header-left h2{
+    color: #000000;
+    font-size: 2.5em;
+}
+.header-left .smH1{
+ color: #585752;
+}
+
+.header-detail{
+    border-radius: 25px;
+    background: #ebeae5;
+    padding: 2em;
+    font-size: 1.5em;                                                                                                                                                                    m;
+    
+}
+
+.header-detail h3{
+    font-size: 1.9em;
+}
+.header-detail p{
+    font-size: 1em;
+    line-height: 30px;
+}
+.header-detail .p-data{
+    font-size: 1.1em;
+    color: #585752;
+}
+
+.tb-pdf{
+    font-size: 1.2em;
+}
+
+.total-reduce{
+    font-size: 2.1em;
+}
+
+.line1{
+    border-bottom: 2px #d6d5d0 solid;
+}
+.result-sector1 h1{
+    font-size: 3em;
+}
+.result-sector1 h2{
+    font-size: 6em;
+}
+.result-sector1 .grade{
+    font-size: 10em;
+}
+.frame-img{
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px #ebeae5 solid
+}
+
+.result-sector2 h1{
+    font-size: 3em;
+}
+.result-sector2 p{
+    font-size:1.8em;
+}
+
+.bg-progress{
+    border-radius: 25px;
+    background: #ebeae5;
+    padding: 2em;
+}
+
+.bg-progress-inside{
+    background: #e3e3db;
+}
+
+.line2{
+    margin-top: 0.8em;
+    border-bottom: 0.05em #dddcd7 solid;
+}
+
+.bg-gastReal {
+    background-color: #CDF300 !important;
+}
+.bg-gastRefer {
+    background-color: #B1B791 !important;
+}
+
+.bg-energyReal{
+    background-color: #CDF300 !important;
+}
+.bg-energyRefer{
+    background-color: #B1B791 !important;
+}
+
+.bg-burnReal{
+    background-color: #CDF300 !important;
+}
+.bg-burnRefer{
+    background-color: #B1B791 !important;
+}
+
+.bg-transportReal{
+    background-color: #CDF300 !important;
+}
+.bg-transporRefert{
+    background-color: #B1B791 !important;
+}
+
+.bg-garbageReal{
+    background-color: #CDF300 !important;
+}
+.bg-garbageRefer{
+    background-color: #B1B791 !important;
+}
+
+.bg-waterReal{
+    background-color: #CDF300 !important;
+}
+.bg-waterRefer{
+    background-color: #B1B791 !important;
+}
+
+.progress{
+    margin-top: 0.5em;
+    height: 1.5em;
+    border-radius: 25em;
+    font-size: 1.5em;
+    
+}
+.progress-bar{
+    color: black;
+    border-radius: 25em;
+}
+
+.box-grade{
+    padding: 1.5em;
+    width: 5em;
+    height: 5em;
+}
+
+.recom h1{
+    font-size: 3em;
+}
+.recom h2{
+    font-size: 2.5em;
+}
+.recom .grade{
+    font-size: 5em;
+}
+table {
+    font-size: 18px;
+}

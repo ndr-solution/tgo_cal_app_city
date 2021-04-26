@@ -1,0 +1,279 @@
+.div{"ng-controller"=>"formCtrl"}
+    .bg-loading#bg-loading
+        .d-flex.justify-content-center
+            .spinner-border
+    .header
+        .container.pt-2
+            .row
+                .col-4
+                    %a{:href=>"#"}
+                        %i.material-icons.icon-home home
+                .col-8
+                    %h1.tilte {{ citytype }}
+    .sub-header
+        .container.pt-3.pb-3 
+            .row
+                .col-4
+                .col-4
+                    %center
+                        %img.img-fluid{:src=>"img/header-{{ form_citytype }}.svg"}
+                .col-4.text-left
+                    -# %span
+                    -#     %i.material-icons.icon-delete{ "ng-click"=>"clearfrom(form_citytype);" } delete_sweep
+    .container.mt-4
+        %form.formcity{:name=>"form","ng-submit"=>"submit(!!form.$error.required);","ng-controller"=>"calCtrl","novalidate"=>"false"}
+            %input.form-control{:type=>"hidden",:name=>"form_citytype","ng-model"=>"form_citytype","ng-value"=>"form_citytype","ng-keyup"=>"onchange()"}
+            .form-row
+                .col-md-12.mb-3
+                    %label โปรดระบุอีเมล: * {{ email }}
+                    %input.form-control{:type=>"email",:name=>"email","ng-model"=>"email","ng-pattern"=>"/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/","required"=>"true","ng-class"=>"checkMail == 1 ? 'quadrat' : ''",:style=>"{{ form.email.$error.required ? 'border-color: Red' : '' }}","ng-keyup"=>"onchangemail(email)"}
+                    %span{"ng-show" => "form.email.$error.required", :style => "color:Red"} 
+                        %strong หมายเหตุ * จำเป็นต้องกรอก
+                    %span{"ng-show" => "form.email.$error.pattern", :style => "color:Red"} 
+                        %strong คุณกรอกอีเมลไม่ถูกต้อง
+
+            .form-row
+                .col-md-12.mb-3
+                    %span
+                        %label โปรดระบุชื่อเทศบาล/เมือง/จังหวัด 
+                        %a{:href=>"",:data-toggle=>"modal",:data-target=>"#namecity"}
+                            %i.material-icons.icon-form-info info 
+                    %input.form-control.change-font{:type=>"text",:name=>"namecity","ng-model"=>"namecity"}
+                    .modal.fade#namecity{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                        .modal-dialog{:role=>"document"}
+                            .modal-content
+                                .modal-header
+                                    %h5.modal-title โปรดระบุชื่อเทศบาล/เมือง/จังหวัด
+                                    %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                        %span{:aria-hidden=>"true"}
+                                            %i{:class=>"material-icons"} close
+                                .modal-body
+                                    %p ตัวอย่างการกรอกข้อมูล เช่น เทศบาลเมืองคลองขุด/สตูล     
+                                .modal-footer
+                                    %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+            .form-row
+                .col-md-12.mb-3
+                    %span
+                        %label โปรดระบุ ปี พ.ศ. ของข้อมูล
+                    %input.form-control.change-font{:type=>"number",:name=>"year","ng-model"=>"year"}
+                      
+            .form-row
+                .col-md-12.mb-3
+                    %span
+                        %label ปริมาณการปล่อยก๊าซเรือนกระจก * (tCO<sub>2</sub>eq ต่อปี)
+                        %a{:href=>"",:data-toggle=>"modal",:data-target=>"#gasreal"}
+                            %i.material-icons.icon-form-info info
+                    %input.form-control{:type=>"number",:name=>"gasreal","ng-model"=>"gasreal","ng-keyup"=>"onchange()"}
+                    .alert.alert-info.mt-2 
+                        * หากไม่กรอก ระบบจะประมวลผลให้ค่าจริงเท่ากับค่าอ้างอิงที่ได้จากการคำนวณ
+                    .modal.fade#gasreal{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                        .modal-dialog{:role=>"document"}
+                            .modal-content
+                                .modal-header
+                                    %h5.modal-title ปริมาณการปล่อยก๊าซเรือนกระจก
+                                        %small (tCO<sub>2</sub>eq ต่อปี)
+                                    %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                        %span{:aria-hidden=>"true"}
+                                            %i{:class=>"material-icons"} close
+                                .modal-body
+                                    %p ค่าปริมาณการปล่อยก๊าซเรือนกระจกจริงรวมของเมือง โดยคำนวณจากการปล่อยก๊าซเรือนกระจก 5 กิจกรรมหลักได้แก่
+                                    %ul 
+                                        %li การใช้พลังงานไฟฟ้า
+                                        %li การใช้เชื้อเพลิง
+                                        %li การขนส่ง
+                                        %li การจัดการขยะของเสีย
+                                        %li การจัดการน้ำเสีย     
+                                .modal-footer
+                                    %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+                    
+            .row
+                .col-12
+                    %span{"ng-if"=>"gasrealDisplay","ng-class"=>"gasrealDisplay >= limitEventType || limitEventType == 0 ? 'form-Real-Refer' : 'form-cal-error'"} 
+                        %p ค่าจริง {{ gasrealDisplay | number:2 }} : {{ eventTypenumber }}
+                .col-12.text-right
+                    %a{:class=>"form-plush",:data-toggle=>"collapse",:data-target=>"#form-event","ng-class"=>"collapse"}
+                        %span.form-more ข้อมูลรายกิจกรรม(ถ้ามี) 
+                            %span
+                                %i.material-icons.icon-form-more control_point
+                .col-12                                        
+                    .collapse#form-event 
+                        .alert.alert-form-event
+                            .row
+                                .col-1
+                                .col-10
+                                    .form-row
+                                        .col-md-12.mb-3
+                                            %span
+                                                %label พลังงานไฟฟ้า (tCO<sub>2</sub>eq ต่อปี)
+                                                %a{:href=>"",:data-toggle=>"modal",:data-target=>"#energy"}
+                                                    %i.material-icons.icon-form-info info
+                                            %input.form-control{:type=>"number",:name=>"energy","ng-model"=>"energy","ng-keyup"=>"onchange()"}
+                                            .modal.fade#energy{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                                                .modal-dialog.modal-dialog-centered{:role=>"document"}
+                                                    .modal-content
+                                                        .modal-header
+                                                            %h5.modal-title พลังงานไฟฟ้า (tCO<sub>2</sub>eq ต่อปี)
+                                                            %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                                                %span{:aria-hidden=>"true"}
+                                                                    %i{:class=>"material-icons"} close
+                                                        .modal-body
+                                                            %p ค่าการปล่อยก๊าซเรือนกระจกที่คำนวณจากการใช้ปริมาณการใช้พลังงานไฟฟ้ารวมของเมือง
+                                                        .modal-footer
+                                                            %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+                        
+                                    .form-row
+                                        .col-md-12.mb-3
+                                            %span
+                                                %label การเผาไหม้อยู่กับที่ (tCO<sub>2</sub>eq ต่อปี)
+                                                %a{:href=>"",:data-toggle=>"modal",:data-target=>"#burn"}
+                                                    %i.material-icons.icon-form-info info
+                                            %input.form-control{:type=>"number",:name=>"burn","ng-model"=>"burn","ng-keyup"=>"onchange()"}
+                                            .modal.fade#burn{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                                                .modal-dialog.modal-dialog-centered{:role=>"document"}
+                                                    .modal-content
+                                                        .modal-header
+                                                            %h5.modal-title การเผาไหม้อยู่กับที่ (tCO<sub>2</sub>eq ต่อปี)
+                                                            %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                                                %span{:aria-hidden=>"true"}
+                                                                    %i{:class=>"material-icons"} close
+                                                        .modal-body
+                                                            %p ค่าการปล่อยก๊าซเรือนกระจกที่คำนวณจากปริมาณการใช้เชื้อเพลิงแบบที่มีการเผาไหม้อยู่กับที่ประเภทต่างๆ ได้แก่ ก๊าซหุงต้ม,ถ่านไม้และฟืน
+                                                        .modal-footer
+                                                            %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด                                   
+
+                                    .form-row
+                                        .col-md-12.mb-3
+                                            %span
+                                                %label การขนส่ง (tCO<sub>2</sub>eq ต่อปี)
+                                                %a{:href=>"",:data-toggle=>"modal",:data-target=>"#transport"}
+                                                    %i.material-icons.icon-form-info info
+                                            %input.form-control{:type=>"number",:name=>"transport","ng-model"=>"transport","ng-keyup"=>"onchange()"}
+                                            .modal.fade#transport{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                                                .modal-dialog.modal-dialog-centered{:role=>"document"}
+                                                    .modal-content
+                                                        .modal-header
+                                                            %h5.modal-title การขนส่ง (tCO<sub>2</sub>eq ต่อปี)
+                                                            %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                                                %span{:aria-hidden=>"true"}
+                                                                    %i{:class=>"material-icons"} close
+                                                        .modal-body
+                                                            %p ค่าการปล่อยก๊าซเรือนกระจกที่คำนวณจากปริมาณการใช้เชื้อเพลิงสำหรับการขนส่ง ได้แก่ น้ำมันเบนซิน น้ำมันดีเซล น้ำมันไบโอดีเซล แก๊สโซฮอล์ และ LPG/NGV
+                                                        .modal-footer
+                                                            %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+
+                                    .form-row
+                                        .col-md-12.mb-3
+                                            %span
+                                                %label การจัดการขยะ (tCO<sub>2</sub>eq ต่อปี)
+                                                %a{:href=>"",:data-toggle=>"modal",:data-target=>"#garbage"}
+                                                    %i.material-icons.icon-form-info info 
+                                            %input.form-control{:type=>"number",:name=>"garbage","ng-model"=>"garbage","ng-keyup"=>"onchange()"}
+                                            .modal.fade#garbage{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                                                .modal-dialog.modal-dialog-centered{:role=>"document"}
+                                                    .modal-content
+                                                        .modal-header
+                                                            %h5.modal-title การจัดการขยะ (tCO<sub>2</sub>eq ต่อปี)
+                                                            %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                                                %span{:aria-hidden=>"true"}
+                                                                    %i{:class=>"material-icons"} close
+                                                        .modal-body
+                                                            %p ค่าการปล่อยก๊าซเรือนกระจกที่คำนวณจากการจัดการขยะมูลฝอย และวิธีการจัดการขยะ คือ การเทกองและฝั่งกลบ
+                                                        .modal-footer
+                                                            %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+
+                                    .form-row
+                                        .col-md-12.mb-3
+                                            %span
+                                                %label การจัดการน้ำเสีย (tCO<sub>2</sub>eq ต่อปี)
+                                                %a{:href=>"",:data-toggle=>"modal",:data-target=>"#water"}
+                                                    %i.material-icons.icon-form-info info
+                                            %input.form-control{:type=>"number",:name=>"water","ng-model"=>"water","ng-keyup"=>"onchange()"}
+                                            .modal.fade#water{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                                                .modal-dialog.modal-dialog-centered{:role=>"document"}
+                                                    .modal-content
+                                                        .modal-header
+                                                            %h5.modal-title การจัดการน้ำเสีย (tCO<sub>2</sub>eq ต่อปี)
+                                                            %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                                                %span{:aria-hidden=>"true"}
+                                                                    %i{:class=>"material-icons"} close
+                                                        .modal-body
+                                                            %p ค่าการปล่อยก๊าซเรือนกระจกที่คำนวณจากการบำบัดน้ำเสียโดยการปล่อย
+                                                        .modal-footer
+                                                            %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+                                .col-1
+
+            .form-row
+                .col-md-12.mt-4
+                    %span{:aria-hidden=>"true",:style=>"{{ alertRefer == 1 ? 'display: inline' : 'display: none' }}"}
+                        %i{:class=>"material-icons warning-recom"} warning
+                        %span.warning-recom โปรดระบุข้อมูลอย่างน้อย 1 ค่า
+                    %span{:aria-hidden=>"true",:style=>"{{ alertRefer == 0 ? 'display: inline' : 'display: none' }}"}
+                        %i{:class=>"material-icons warning"} warning
+                            %span โปรดระบุอย่างน้อยค่าใดค่าหนึ่ง
+                .col-md-12.mt-4
+                    %span
+                        %label จำนวนประชากรของเมือง (คน)
+                        %a{:href=>"",:data-toggle=>"modal",:data-target=>"#population"}
+                            %i.material-icons.icon-form-info info
+                    %input.form-control{:type=>"number",:name=>"population","ng-model"=>"population","ng-keyup"=>"onchange()",:style=>"{{ alertRefer == 0 ? 'background: #FF0000' : '' }}"}
+                    .modal.fade#population{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                        .modal-dialog.modal-dialog-centered{:role=>"document"}
+                            .modal-content
+                                .modal-header
+                                    %h5.modal-title จำนวนประชากรของเมือง (คน)
+                                    %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                        %span{:aria-hidden=>"true"}
+                                            %i{:class=>"material-icons"} close
+                                .modal-body
+                                    %p จำนวนประชากรที่อยู่ในเขตเมืองทั้งหมด ปีเดียวกันกับการคำนวณค่าปล่อยก๊าซเรือนกระจก
+                                .modal-footer
+                                    %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+        
+            .form-row
+                .col-md-12.mb-3
+                    %span
+                        %label จำนวนครัวเรือน (ครัวเรือน)
+                        %a{:href=>"",:data-toggle=>"modal",:data-target=>"#family"}
+                            %i.material-icons.icon-form-info info
+                    %input.form-control{:type=>"number",:name=>"family","ng-model"=>"family","ng-keyup"=>"onchange()",:style=>"{{ alertRefer == 0 ? 'background: #FF0000' : '' }}"}
+                    .modal.fade#family{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                        .modal-dialog.modal-dialog-centered{:role=>"document"}
+                            .modal-content
+                                .modal-header
+                                    %h5.modal-title จำนวนครัวเรือน (ครัวเรือน)
+                                    %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                        %span{:aria-hidden=>"true"}
+                                            %i{:class=>"material-icons"} close
+                                .modal-body
+                                    %p จำนวนครัวเรือนในเขตเมืองทั้งหมด ปีเดียวกันกับการคำนวณค่าการปล่อยก๊าซเรือนกระจก
+                                .modal-footer
+                                    %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+
+            .form-row
+                .col-md-12.mb-3
+                    %span
+                        %label ขนาดพื้นที่ (ตารางกิโลเมตร)
+                        %a{:href=>"",:data-toggle=>"modal",:data-target=>"#areasize"}
+                            %i.material-icons.icon-form-info info    
+                    %input.form-control{:type=>"number",:name=>"areasize","ng-model"=>"areasize","ng-keyup"=>"onchange()",:style=>"{{ alertRefer == 0 ? 'background: #FF0000' : '' }}"}
+                    .modal.fade#areasize{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                        .modal-dialog.modal-dialog-centered{:role=>"document"}
+                            .modal-content
+                                .modal-header
+                                    %h5.modal-title ขนาดพื้นที่ (ตารางกิโลเมตร)
+                                    %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                        %span{:aria-hidden=>"true"}
+                                            %i{:class=>"material-icons"} close
+                                .modal-body
+                                    %p ขนาดพื้นที่ของเมืองทั้งหมด
+                                .modal-footer
+                                    %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+
+            .form-row
+                .col-md-12.mb-3
+                    %center
+                        %a{:href=>"#/"}
+                            %button.btn-ghgcity.shadow-sm{:type=>"button"} กลับ
+                        %input.btn-ghgcity.shadow-sm{:type=>"submit",:value=>"คำนวณ","ng-class"=>"form.email.$error.pattern ? 'disabled disabled-color' : ''"}
+                        %input.btn-ghgcity.shadow-sm{:type=>"button",:value=>"ล้างข้อมูล","ng-click"=>"clearfrom(form_citytype);"}
+        

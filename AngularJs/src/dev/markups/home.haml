@@ -1,0 +1,76 @@
+.body-home
+    .top-home 
+        .container.pt-5
+            .row
+                .col-12
+                    %img.img-fluid{:src=>"img/logo.jpg"}
+            .row
+                .col-12
+                    .card.card-home-title.mt-5
+                        .card-body
+                            .row    
+                                .col-6
+                                    %a{:href=>"http://www.tgo.or.th"} 
+                                        %span
+                                            %img.bullet{:src=>"img/bullet.svg"}
+                                            %span.text-bullet เกี่ยวกับ อบก.
+                                .col-6
+                                    %a{:href=>"http://ghgreduction.tgo.or.th/pmr.html"} 
+                                        %span
+                                            %img.bullet{:src=>"img/bullet.svg"} 
+                                            %span.text-bullet เกี่ยวกับ โครงการ PMR
+        .curve.mt-4
+            <svg id="curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1399 165.45">
+                <path class="cls-1" d="M1399,165.45H0l1-88c329.76-111,552.48-83.79,697.62-35,83.75,28.15,167.58,72.21,303.38,81,165.32,10.69,304.23-37.57,397-81Z"/>
+            </svg>
+            
+    .bottom-home
+        .container
+            .row
+                .col-12
+                    %span.line-buttom
+                        %i.material-icons.icon-city location_city
+                        %span.text-select กรุณาเลือกประเภทเมืองของท่าน
+
+        .container-menu.mt-3
+            .box
+                %a{:href=>"#/form/industry"}
+                    .img-menu 
+                        %img.img-fluid{:src=>"img/frame-industry.svg"}
+                    .text-menu  เมืองอุตสาหกรรม
+            .box 
+                %a{:href=>"#/form/travel"} 
+                    .img-menu
+                        %img.img-fluid{:src=>"img/frame-travel.svg"}
+                    .text-menu  เมืองท่องเที่ยว
+                    
+            .box
+                %a{:href=>"#/form/residence"}  
+                    .img-menu
+                        %img.img-fluid{:src=>"img/frame-residence.svg"}
+                    .text-menu  เมืองที่อยู่อาศัย
+
+            .box
+                %a{:href=>"#/form/agriculture"}            
+                    .img-menu
+                        %img.img-fluid{:src=>"img/frame-agriculture.svg"}
+                    .text-menu เมืองเกษตรกรรม
+
+        .container.mt-2
+            .row
+                .col-12
+                    .box-question
+                        %a{"href"=>"#/question"}
+                            %span  
+                                %i.material-icons.icon-question{} question_answer
+                                %span.question ไม่ทราบประเภทเมือง
+
+            .row
+                .col-12.text-center
+                    %p Application สำหรับการวิเคราะห์ค่าการปล่อยก๊าซเรือนกระจกสำหรับเมือง
+                        %br
+                        %small หมายเหตุ: มีการบันทึกในฐานข้อมูลขององค์การบริหารจัดการก๊าซเรือนกระจก (องค์การมหาชน)
+
+            .row
+                .col-12.text-center
+                    Version 1.3

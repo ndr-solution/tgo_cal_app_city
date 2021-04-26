@@ -1,0 +1,210 @@
+.div{"ng-controller"=>"resultCtrl"}
+    .header
+        .container.pt-2
+            .row
+                .col-4
+                    %a{:href=>"#"}
+                        %i.material-icons.icon-home home
+                .col-8
+                    %h1.tilte {{ citytype }}
+    .sub-header
+        .container.pt-3.pb-3 
+            .row.header-result
+                .col-4.col-md-4.box-result 
+                    .box-header-display
+                        %img.text-img{:src=>"img/header-{{ imgcitytype }}.svg"}
+                .col-4.col-md-4.box-result
+                    .box-header-display
+                        %h2.text-index{:style=>"color:{{ ratings.color }};"} {{ cityIndex | number:2 }}
+                .col-4.col-md-4.box-result
+                    .box-header-display{:style=>"background:{{ ratings.color }};"}
+                        %a{:href=>"",:data-toggle=>"modal",:data-target=>"#grade-info"}
+                            %i.material-icons.icon-result-info info
+                        %h2.text-grade {{ ratings.grade }}
+                        .modal.fade#grade-info{:tabindex=>"1",:role=>"dialog",:aria-hidden=>"true"}
+                            .modal-dialog{:role=>"document"}
+                                .modal-content
+                                    .modal-header
+                                        %h5.modal-title คำอธิบายตัวชี้วัดค่าการปล่อยก๊าซเรือนกระจกของเมือง
+                                        %button.close{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"}
+                                            %span{:aria-hidden=>"true"}
+                                                %i{:class=>"material-icons"} close
+                                    .modal-body
+                                        //%h2.text-left คำอธิบายตัวชี้วัดค่าการปล่อยก๊าซเรือนกระจกของเมือง
+                                        %p.text-left
+                                            %strong ตัวชี้วัดค่าการปล่อยก๊าซเรือนกระจกของเมือง 
+                                            เป็นการแสดงค่าการเปรียบเทียบค่าปล่อยก๊าซเรือนกระจกจริงของเมืองกับค่าการปล่อยก๊าซเรือนกระจกอ้างอิง (Benchmark) ที่วิเคราะห์จากฐานข้อมูลขององค์การบริหารจัดการก๊าซเรือนกระจก (อบก.) ในกลุ่มเมืองเดียวกัน ในรูปแบบสมการ ซึ่งเป็นค่าจากการเก็บข้อมูลของโครงการการพัฒนาเครื่องมือการคำนวณการปล่อยก๊าซเรือนกระจกอย่างง่ายของเทศบาล โดย อบก. ตามความสัมพันธ์ดังนี้
+                                        .alert
+                                            ตัวชี้วัดการปล่อยก๊าซเรือนกระจกของเมือง =
+                                            .frac
+                                                %span ค่าการปล่อยก๊าซเรือนกระจกจริง
+                                                %span.symbol ค่าการปล่อยก๊าซเรือนกระจกจริง
+                                                %span.bottom ค่าการปล่อยก๊าซเรือนกระจกอ้างอิง
+                                        %p.text-left 
+                                        .container
+                                            .row
+                                                .col-sm-12.col-md-12
+                                                    <table class="table">
+                                                        <thead>
+                                                        <th>ตัวชี้วัดค่าการปล่อยก๊าซเรือนกระจกของเมือง<th>
+                                                        <th colspan="2">ระดับ<th>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>0.00 - 0.70</td>
+                                                            <td><div class="btn" style="background-color:#567B37;">A<sup>+</sup></div></td>
+                                                            <td>ดีเลิศ</td>
+                                                        </tr>
+                                                            <tr><td>0.71 - 0.90</td>
+                                                            <td><div class="btn" style="background-color:#9ACB48;">A</div></td>
+                                                            <td>ดีมาก</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0.91 - 0.99</td>
+                                                            <td><div class="btn" style="background-color:#EEC15B;">B</div></td>
+                                                            <td>ดี</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>1.00 - 1.20</td>
+                                                            <td><div class="btn" style="background-color:#EB9A60;">C</div></td>
+                                                            <td>พอใช้</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>1.21 - 1.60</td>
+                                                            <td><div class="btn" style="background-color:#E48873;">D</div></td>
+                                                            <td>ควรปรับปรุง</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>1.61 - 1.99</td>
+                                                            <td><div class="btn" style="background-color:#CC5F50;">E</div></td>
+                                                            <td>ควรปรับปรุงอย่างยิ่ง</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> ≥ 2.00 </td>
+                                                            <td><div class="btn" style="background-color:#A5463E;">F</div></td>
+                                                            <td>ควรเร่งปรับปรุงอย่างเร่งด่วน</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                    .modal-footer
+                                        %button.btn.btn-lg.btn-success{:type=>"button",:data-dismiss=>"modal",:aria-label=>"Close"} ปิด
+                        
+
+    .container.mt-5
+        %h2 การปล่อยก๊าซเรือนกระจก
+        .row.mt-3
+            .col-12
+                %label
+                    %p ค่าจริง {{ dataStroage.gasreal | number:2 }} tCO<sub>2</sub>eq
+        .row
+            .col-12
+                .progress
+                    .progress-bar#gasReal{:style=>"background:#cdf300;"}
+
+        .row.mt-3
+            .col-12 
+                %label
+                    %p ค่าอ้างอิง {{ dataStroage.gasrefer | number:2 }} tCO<sub>2</sub>eq
+        .row
+            .col-12
+                .progress
+                    .progress-bar#gasRefer{:style=>"background:#B1B791;"}
+
+        .row.mt-4
+            .col-12
+                %img.img-fluid{:src=>"img/{{ ratings.grade }}.png"}
+    .container.mt-5
+        %h2 การปล่อยก๊าซเรือนกระจกแบ่งตามกิจกรรม
+        .alert.alert-event
+            .row
+                .col-10
+                    %p ค่าการปล่อยก๊าซเรือนกระจกจากการใช้พลังงานไฟฟ้า 
+                .col-2
+                    .event-icon-light.float-right
+                        %img.img-fluid{:src=>"img/light.svg"} 
+            .row.mb-5{"ng-show"=>"eventype.energy[0].precent != 0"} 
+                .col-12
+                    .progress
+                        .progress-bar.progress-bar-striped{:style=>"width: {{ eventype.energy[0].precent | number:2 }}%;background-color:#cdf300;!important"}
+                            %label ค่าจริง  {{ eventype.energy[0].energy | number:2 }} tCO<sub>2</sub>eq ต่อปี
+            .row
+                .col-12
+                    .progress
+                        .progress-bar{:style=>"width: {{ proportion.energy[0].precent | number:2 }}%; background:#b1b791;"} 
+                            %label ค่าอ้างอิง {{ proportion.energy[0].energy | number:2 }} tCO<sub>2</sub>eq ต่อปี
+                
+        .alert.alert-event
+            .row.mt-3
+                .col-10
+                    %p ค่าการปล่อยก๊าซเรือนกระจกจากการใช้เชื้อเพลิงแบบเผาไหม้อยู่กับที่
+                .col-2
+                    .event-icon-gas.float-right
+                        %img.img-fluid{:src=>"img/gas.svg"} 
+            .row.mb-5{"ng-show"=>"eventype.burn[0].precent != 0"} 
+                .col-12
+                    .progress
+                        .progress-bar.progress-bar-striped{:style=>"width: {{ eventype.burn[0].precent | number:2 }}%;background-color:#cdf300;!important"}
+                            %label ค่าจริง {{ eventype.burn[0].burn | number:2 }} tCO<sub>2</sub>eq ต่อปี
+            .row
+                .col-12
+                    .progress
+                        .progress-bar{:style=>"width: {{ proportion.burn[0].precent | number:2 }}%;background:#b1b791;"}
+                            %label ค่าอ้างอิง {{ proportion.burn[0].burn | number:2 }} tCO<sub>2</sub>eq ต่อปี
+        .alert.alert-event                        
+            .row.mt-3
+                .col-10
+                    %p ค่าการปล่อยก๊าซเรือนกระจกจากการขนส่ง
+                .col-2
+                    .event-icon-car.float-right
+                        %img.img-fluid{:src=>"img/car.svg"}
+            .row.mb-5{"ng-show"=>"eventype.transport[0].precent != 0"} 
+                .col-12
+                    .progress
+                        .progress-bar.progress-bar-striped{:style=>"width: {{ eventype.transport[0].precent | number:2 }}%;background-color:#cdf300;!important"}
+                            %label ค่าจริง {{ eventype.transport[0].transport | number:2 }} tCO<sub>2</sub>eq ต่อปี
+            .row
+                .col-12
+                    .progress
+                        .progress-bar{:style=>"width: {{ proportion.transport[0].precent | number:2 }}%; background:#b1b791;"}
+                            %label ค่าอ้างอิง {{ proportion.transport[0].transport | number:2 }} tCO<sub>2</sub>eq ต่อปี
+        .alert.alert-event                        
+            .row.mt-3
+                .col-10
+                    %p ค่าการปล่อยก๊าซเรือนกระจกจากการจัดการขยะ
+                .col-2.text-right
+                    .event-icon-garbage.float-right
+                        %img.img-fluid{:src=>"img/garbage.svg"}
+            .row.mb-5{"ng-show"=>"eventype.garbage[0].precent != 0"} 
+                .col-12
+                    .progress
+                        .progress-bar.progress-bar-striped{:style=>"width: {{ eventype.garbage[0].precent | number:2 }}%;background-color:#cdf300;!important"}
+                            %label ค่าจริง {{ eventype.garbage[0].garbage | number:2 }} tCO<sub>2</sub>eq ต่อปี
+            .row
+                .col-12
+                    .progress
+                        .progress-bar{:style=>"width: {{ proportion.garbage[0].precent | number:2 }}%; background:#b1b791;"}
+                            %label ค่าอ้างอิง {{ proportion.garbage[0].garbage | number:2 }} tCO<sub>2</sub>eq ต่อปี
+        .alert.alert-event                        
+            .row.mt-3
+                .col-10
+                    %p ค่าการปล่อยก๊าซเรือนกระจกจากการจัดการน้ำเสีย
+                .col-2.text-right
+                    .event-icon-water.float-right
+                        %img.img-fluid{:src=>"img/water.svg"}        
+            .row.mb-5{"ng-show"=>"eventype.water[0].precent != 0"} 
+                .col-12
+                    .progress
+                        .progress-bar.progress-bar-striped{:style=>"width: {{ eventype.water[0].precent | number:2 }}%;background-color:#cdf300;!important"}
+                            %label ค่าจริง {{ eventype.water[0].water | number:2 }} tCO<sub>2</sub>eq ต่อปี
+            .row
+                .col-12
+                    .progress
+                        .progress-bar{:style=>"width: {{ proportion.water[0].precent | number:2 }}%; background:#b1b791;"}
+                            %label ค่าอ้างอิง {{ proportion.water[0].water | number:2 }} tCO<sub>2</sub>eq ต่อปี
+    .container.mt-3.mb-3
+        %center
+            %button.btn-ghgcity.shadow-sm{:type=>"button",:value=>"กลับ",:onclick=>"window.history.back();"} กลับ
+            %a{:href=>"#/recommend/{{imgcitytype}}"}
+            %button.btn-ghgcity.shadow-sm{:type=>"button",:value=>"อีเมลผล","ng-click"=>"createPDF()"} อีเมลผล
+            %a{:href=>"#/recommend/{{imgcitytype}}"}
+                %button.btn-ghgcity.shadow-sm{:type=>"button"} คำแนะนำ

@@ -1,0 +1,102 @@
+.header
+    .container.pt-2
+        .row
+            .col-4
+                %a{:href=>"#"}
+                    %i.material-icons.icon-home home
+            .col-8
+                %h1.tilte แบบสอบถาม
+                
+.container.form-question
+    %form{:name=>"form","ng-submit"=>"submit()","ng-controller"=>"questionCtrl"}
+        %p.title 1. ลักษณะของแหล่งน้ำใช้ของท่านเป็นอย่างไร
+            .alert{"ng-class"=>"alert1=='warning'? 'alert-warning':'alert-question'"}
+                .funkyradio
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio1",:name=>"q1",:value=>1,"ng-model"=>"q1"}
+                        %label{:for=>"radio1"} น้ำบ่อตื้น / ประปาภูเขา
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio2",:name=>"q1",:value=>2,"ng-model"=>"q1"}
+                        %label{:for=>"radio2"} น้ำประปาจากการประปา
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio3",:name=>"q1",:value=>3,"ng-model"=>"q1"}
+                        %label{:for=>"radio3"} น้ำประปาจากการนิคม
+        %p.title 2. รูปแบบของการจัดการขยะ
+            .alert{"ng-class"=>"alert2=='warning'? 'alert-warning':'alert-question'"}
+                .funkyradio
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio4",:name=>"q2",:value=>"1","ng-model"=>"q2"}
+                        %label{:for=>"radio4"} ไม่มีการจัดการ
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio5",:name=>"q2",:value=>"2","ng-model"=>"q2"}
+                        %label{:for=>"radio5"} การเทกอง
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio6",:name=>"q2",:value=>"3","ng-model"=>"q2"}
+                        %label{:for=>"radio6"} การฝังกลบ
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio7",:name=>"q2",:value=>"4","ng-model"=>"q2"}
+                        %label{:for=>"radio7"} การเผา
+        %p.title 3. รูปแบบของการจัดการน้ำเสีย
+            .alert{"ng-class"=>"alert3=='warning'? 'alert-warning':'alert-question'"}
+                .funkyradio
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio8",:name=>"q3",:value=>1,"ng-model"=>"q3"}
+                        %label{:for=>"radio8"} ไม่มีระบบบำบัด
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio9",:name=>"q3",:value=>3,"ng-model"=>"q3"}
+                        %label{:for=>"radio9"} มีระบบบำบัด
+        %p.title 4. รูปแบบของระบบขนส่ง (เลือกได้มากกว่า 1 ข้อ)
+            .alert.alert-question{"ng-class"=>"alert4=='warning'? 'alert-warning':'alert-question'"}
+                .funkyradio{"ng-init" => "road = false; water = false; rail = false; air = false;"}
+                    .funkyradio-ghg-city
+                        %input{:type=>"checkbox",:id=>"checkbox1",:name=>"q4","ng-true-value"=>"'true'","ng-model"=>"road"}
+                        %label{:for=>"checkbox1"} ทางถนน
+                    .funkyradio-ghg-city
+                        %input{:type=>"checkbox",:id=>"checkbox2",:name=>"q4","ng-true-value"=>"'true'","ng-model"=>"water"}
+                        %label{:for=>"checkbox2"} ทางน้ำ
+                    .funkyradio-ghg-city
+                        %input{:type=>"checkbox",:id=>"checkbox3",:name=>"q4","ng-true-value"=>"'true'","ng-model"=>"rail"}
+                        %label{:for=>"checkbox3"} ทางราง
+                    .funkyradio-ghg-city
+                        %input{:type=>"checkbox",:id=>"checkbox4",:name=>"q4","ng-true-value"=>"'true'","ng-model"=>"air"}
+                        %label{:for=>"checkbox4"} ทางอากาศ
+        %p.title 5. สัดส่วนของพื้นที่ปศุสัตว์
+            .alert{"ng-class"=>"alert5=='warning'? 'alert-warning':'alert-question'"}
+                .funkyradio
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio10",:name=>"q5",:value=>1,"ng-model"=>"q5"} 
+                        %label{:for=>"radio10"} มากกว่าร้อยละ 30
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio11",:name=>"q5",:value=>2,"ng-model"=>"q5"} 
+                        %label{:for=>"radio11"} ร้อยละ 5 – 30
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio12",:name=>"q5",:value=>3,"ng-model"=>"q5"}
+                        %label{:for=>"radio12"} น้อยกว่าร้อยละ 5
+        %p.title 6. สัดส่วนของพื้นที่การเพาะปลูก
+            .alert{"ng-class"=>"alert6=='warning'? 'alert-warning':'alert-question'"}
+                .funkyradio
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio13",:name=>"q6",:value=>1,"ng-model"=>"q6"}
+                        %label{:for=>"radio13"} มากกว่าร้อยละ 30
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio14",:name=>"q6",:value=>2,"ng-model"=>"q6"}
+                        %label{:for=>"radio14"} ร้อยละ 5 – 30
+                    .funkyradio-ghg-city    
+                        %input{:type=>"radio",:id=>"radio15",:name=>"q6",:value=>3,"ng-model"=>"q6"}
+                        %label{:for=>"radio15"} น้อยกว่าร้อยละ 5
+        %p.title 7. สัดส่วนของพื้นที่ป่าไม้
+            .alert{"ng-class"=>"alert7=='warning'? 'alert-warning':'alert-question'"}
+                .funkyradio
+                    .funkyradio-ghg-city
+                        %input{:type=>"radio",:id=>"radio16",:name=>"q7",:value=>1,"ng-model"=>"q7"}
+                        %label{:for=>"radio16"} มากกว่าร้อยละ 30
+                    .funkyradio-ghg-city    
+                        %input{:type=>"radio",:id=>"radio17",:name=>"q7",:value=>2,"ng-model"=>"q7"}
+                        %label{:for=>"radio17"} ร้อยละ 5 – 30
+                    .funkyradio-ghg-city     
+                        %input{:type=>"radio",:id=>"radio18",:name=>"q7",:value=>3,"ng-model"=>"q7"}
+                        %label{:for=>"radio18"} น้อยกว่าร้อยละ 5
+        %center
+            %a{:href=>"#/"}
+                %button.btn-ghgcity.shadow-sm{:type=>"button"} กลับ
+            %input.btn-ghgcity.shadow-sm{:type=>"submit",:value=>"ตอบ"} 

@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit')
+.change-font
+    font-family: 'Kanit', sans-serif
+.formcity
+    font-size: 1em
+
+.formcity 
+    label
+        @media screen and (min-width: 320px)
+            font-size: 1.1em
+        @media screen and (min-width: 425px)
+            font-size: 1.4em
+
+
+.formcity 
+    input[type=number],input[type=text],input[type=email]
+        border-radius: 25px
+        border-size: 1px
+        border-style: solid
+        border-color: $theme-1
+        min-height: 35px
+        font-weight: bold
+        font-size:  $font-small
+
+a.form-plush
+.form-Real-Refer
+    color: 	$theme-1
+    font-weight: bold 
+    font-size: 1.7rem
+.form-cal-error
+    color: #dc3545
+    font-weight: bold
+    font-size: 1.7rem
+
+
+.form-more
+    font-weight: bold 
+    color: 	#FF1493
+    font-size: 1.7rem
+
+.icon-form-more 
+    position: relative
+    top: 0.2em
+    font-weight: 500
+    color: 	#FF1493
+
+.icon-form-info 
+    position: relative
+    top: 0.2em
+    font-weight: 500
+    font-size: 1.7rem
+    color: 	#4CAF50
+
+.icon-delete
+    position: absolute
+    bottom: 0px
+    font-weight: 500
+    font-size: 2.8rem
+    color: 	#FF0000
+
+
+.modal-header
+    background: $theme-1
+.modal-header .modal-title
+    font-size: 1.8rem
+    font-weight: bold
+.modal-body label
+    font-size: 1.4rem
+    font-weight: bold
+.form-result
+    border-radius: 20px
+    height: 2.5em
+    font-size: 16px
+    border-color: $theme-1
+
+.warning-recom
+    color: $theme-1
+    font-weight: bold
+    font-size: 1.2em
+    
+
+.warning
+    color: #FF0000
+    font-weight: bold
+    font-size: 1.2em
+
+
+.quadrat
+  -webkit-animation: Email-invalid 1s infinite 
+  -moz-animation: Email-invalid 1s infinite  
+  -o-animation: Email-invalid 1s infinite  
+  animation: Email-invalid 1s infinite  
+
+@-webkit-keyframes Email-invalid
+  0%, 49%
+    background-color: rgb(117, 209, 63)
+  50%, 100%
+    background-color: #e50000
+
+
+
+
+.alert-form-event
+    background: #F8F9FA
+    border-radius: 15px 
+
+.disabled
+    pointer-events: none
+    .icon-form-more, .form-more
+        color: #F2F2F2
+
+.disabled-color
+    pointer-events: none
+    background: #F2F2F2
+    color: #777673
+
+.btn-disabled
+    pointer-events: none
+    background: #F2F2F2
+    color: #777673
+ 
+#bg-loading
+    display: none
+.bg-loading
+    height: 100%
+    width: 100%
+    background-color: rgba(255,255,255,.5)
+    position: absolute
+    z-index: 99
+
+@-webkit-keyframes spinner-border 
+  to 
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+  
+
+
+@keyframes spinner-border 
+  to 
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+  
+
+
+.spinner-border 
+    display: inline-block
+    width: 10rem
+    height: 10rem
+    vertical-align: text-bottom
+    border: 1em solid currentColor
+    border-right-color: transparent
+    border-radius: 50%
+    -webkit-animation: spinner-border .75s linear infinite
+    animation: spinner-border .75s linear infinite
+    z-index: 99
+    color: #fd7e14
+    position: absolute
+    top: 285px
+
+
+.spinner-border-sm 
+  width: 1rem
+  height: 1rem
+  border-width: 0.2em
+
+@-webkit-keyframes spinner-grow 
+  0% 
+    -webkit-transform: scale(0)
+    transform: scale(0)
+  
+  50% 
+    opacity: 1
+  
+@keyframes spinner-grow 
+  0% 
+    -webkit-transform: scale(0)
+    transform: scale(0)
+  
+  50% 
+    opacity: 1
+  
+.spinner-grow 
+  display: inline-block
+  width: 2rem
+  height: 2rem
+  vertical-align: text-bottom
+  background-color: currentColor
+  border-radius: 50%
+  opacity: 0
+  -webkit-animation: spinner-grow .75s linear infinite
+  animation: spinner-grow .75s linear infinite
+
+.spinner-grow-sm 
+  width: 1rem
+  height: 1rem

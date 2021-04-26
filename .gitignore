@@ -1,0 +1,16 @@
+# Dependence Folder
+/AngularJs/node_modules
+/AngularJs/bower_components
+/Mobile/android/platforms/
+/Mobile/android/plugins/
+/Mobile/android/node_modules
+/Mobile/android/www
+
+/Mobile/iOS/platforms/
+/Mobile/iOS/plugins/
+/Mobile/iOS/node_modules
+/Mobile/iOS/www
+
+# Complied Folder
+/AngularJs/export
+

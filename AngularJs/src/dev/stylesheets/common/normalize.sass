@@ -1,0 +1,95 @@
+@font-face
+  font-family: supermarket
+  src: url('../fonts/supermarket.ttf')
+  font-display: fallback
+
+html 
+    font-size: 62.5%
+body
+    font-family: supermarket
+    font-size: 14px
+    font-size: 1.4em
+    margin: 0
+    padding: 0
+    width: 100%
+    height: 100%
+a
+  text-decoration: none
+  color: #000
+  &:hover
+    text-decoration: none
+    color: #000
+ul
+  list-style-type: none 
+
+
+
+@font-face
+  font-family: 'Material Icons'
+  font-style: normal
+  font-weight: 400
+  src: url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),local('MaterialIcons-Regular'),url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),url(../fonts/MaterialIcons-Regular.woff) format('woff'),url(../fonts/MaterialIcons-Regular.ttf) format('truetype')
+.material-icons
+  font-family: 'Material Icons'
+  font-weight: normal
+  font-style: normal
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block
+  line-height: 1
+  text-transform: none
+  letter-spacing: normal
+  word-wrap: normal
+  white-space: nowrap
+  direction: ltr
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale
+  /* Support for IE. */
+  font-feature-settings: 'liga'
+
+.header
+  width: 100vw
+  min-height: 6vh
+  background: $theme-1
+  margin: 0
+  padding: 0
+
+.header .icon-home
+  color: #ffffff
+  margin: 0
+  font-size: 4em
+
+
+.header .tilte 
+  color: #ffffff
+  position: relative
+  top: 0.5em
+
+
+.sub-header 
+  width: 100vw
+  min-height: 10vh
+  background: #ECF4F5
+  margin: 0
+  padding: 0
+
+
+.btn-ghgcity
+  min-width: 5em 
+  padding: 0.3em
+  color: #ffffff
+  background: $theme-1
+  font-size: $font-title-body
+  border: none
+  border-radius: 25px
+  outline: none
+
+.btn-ghgcity:active
+  color: #fff
+  background-color: #FF002B
+  border-color: #FF002B
+  border-radius: 25px

@@ -1,0 +1,102 @@
+{
+  "id": "b3ce630a-1655-49ee-a0e1-f4c35c763a3d",
+  "version": "2.0",
+  "name": "BMC_city",
+  "url": "http://localhost:9999",
+  "tests": [{
+    "id": "3c96a873-5381-4bfd-91e9-7343d188cb00",
+    "name": "industry case1",
+    "commands": [{
+      "id": "3969c6b0-fad7-4924-ab46-2b62addf9c42",
+      "comment": "",
+      "command": "open",
+      "target": "/#/form/industry",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c5e3baa-1b29-46ee-a890-eca6432a644a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1580x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57d59958-8d1e-4846-9d12-f8188a025d61",
+      "comment": "",
+      "command": "type",
+      "target": "name=gas",
+      "targets": [
+        ["name=gas", "name"],
+        ["css=.ng-pristine:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='gas']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "12345"
+    }, {
+      "id": "3990de12-cea7-40f4-8cbe-c84976176b2d",
+      "comment": "",
+      "command": "type",
+      "target": "name=population",
+      "targets": [
+        ["name=population", "name"],
+        ["css=.ng-untouched:nth-child(8)", "css:finder"],
+        ["xpath=//input[@name='population']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "1160a099-e2e3-4cc4-8415-3d88229f4efb",
+      "comment": "",
+      "command": "type",
+      "target": "name=family",
+      "targets": [
+        ["name=family", "name"],
+        ["css=.ng-untouched:nth-child(12)", "css:finder"],
+        ["xpath=//input[@name='family']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "20"
+    }, {
+      "id": "d3a7db1e-6969-4fe0-b093-ac418fb08222",
+      "comment": "",
+      "command": "type",
+      "target": "name=areasize",
+      "targets": [
+        ["name=areasize", "name"],
+        ["css=.ng-untouched:nth-child(16)", "css:finder"],
+        ["xpath=//input[@name='areasize']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "30"
+    }, {
+      "id": "9cac669f-821b-498d-9be8-52e8500320d4",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=areasize",
+      "targets": [
+        ["name=areasize", "name"],
+        ["css=.ng-untouched:nth-child(16)", "css:finder"],
+        ["xpath=//input[@name='areasize']", "xpath:attributes"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "a32903ce-6948-4696-a55a-133eeed1e0a8",
+      "comment": "",
+      "command": "assertValue",
+      "target": "css=p#cityIndex",
+      "targets": [],
+      "value": "0.21"
+    }]
+  }],
+  "suites": [{
+    "id": "b1f02965-ab30-44dc-a85c-c4afa9af4380",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3c96a873-5381-4bfd-91e9-7343d188cb00"]
+  }],
+  "urls": ["http://localhost:9999/"],
+  "plugins": []
+}
