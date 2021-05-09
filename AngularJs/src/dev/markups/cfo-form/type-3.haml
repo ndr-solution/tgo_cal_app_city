@@ -1,0 +1,73 @@
+.container.bg-1.mt-4
+    .row
+        .col-4.col-md-3
+            %img.img-fluid.rounded{:src=>"img/cfo_scope10.PNG"}
+        .col.8.text-center
+            .sub-bg-1
+                %h2 ประเภทที่ 1 
+                %h3  ปริมาณที่เติมสารดับเพลิง CO
+                    %sub 2
+.container.mt-4
+    .row.mt-2.card
+        -# .col-3.col-md-2.text-right
+            -# %img.img-fluid.rounded{:src=>"img/LPG4kg.PNG"}
+        .col-12.col-md-12.pt-4.pb-4
+            .row
+                .col-7.col-md-5.col-lg-5.pr-0.form-text
+                    ปริมาณที่เติม สารดับเพลิง CO
+                    %sub
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number", 'ng-model'=>"egs_age"}
+                    ถังต่อปี 
+
+.container.bg-1.mt-4
+    .row
+        .col-4.col-md-3
+            %img.img-fluid.rounded{:src=>"img/cfo_scope4.png"}
+        .col.8.text-center
+            .sub-bg-1
+                %h2 ประเภทที่ 1
+                %h3 ปริมาณที่เติมสารทำความเย็น 
+                    %brในเครื่องปรับอากาศ
+
+.container.mt-4
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/R134a.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    R134a
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"r134a"}
+                    กิโลกรัมต่อปี
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/R32.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    R32
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"r32"}
+                    กิโลกรัมต่อปี              
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/R140a.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    R410a
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"r410a"}
+                    กิโลกรัมต่อปี
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/R22.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    R22
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"r22"}
+                    กิโลกรัมต่อปี

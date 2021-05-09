@@ -1,0 +1,52 @@
+.cfo-main-wrap{"ng-controller"=>"cfoForm"}
+    .cfo-sub-wrap
+        +include 'src/dev/markups/cfo-partials/header.haml'
+        .cfo-main-body{:style=>"padding-bottom: 0;"}
+            .cfo-main-container
+                .container
+                    .row
+                        .col-12.text-center
+                            -# %h2.mt-4 Form
+                .container 
+                    .row
+                        .col-12 
+                            %form#regForm
+                                .tab
+                                    +include 'src/dev/markups/cfo-form/type-1.haml'
+                                .tab 
+                                    +include 'src/dev/markups/cfo-form/type-2.haml'
+                                .tab 
+                                    +include 'src/dev/markups/cfo-form/type-3.haml'
+                                .tab 
+                                    +include 'src/dev/markups/cfo-form/type-4.haml'
+                                .tab 
+                                    +include 'src/dev/markups/cfo-form/type-5.haml'
+                                .tab 
+                                    +include 'src/dev/markups/cfo-form/type-6.haml'
+                                .tab 
+                                    +include 'src/dev/markups/cfo-form/type-7.haml'
+                                .tab 
+                                    +include 'src/dev/markups/cfo-form/type-8.haml'
+                                .tab 
+                                    +include 'src/dev/markups/cfo-form/type-9.haml'
+                                %div{:style=>"text-align:center; margin-top:10px;"}
+                                    %span.step
+                                    %span.step
+                                    %span.step
+                                    %span.step
+                                    %span.step
+                                    %span.step
+                                    %span.step
+                                    %span.step
+                                    %span.step                      
+
+        .cfo-main-footer
+            .container-fluid
+                .container.text-center.p-2
+                    .cfo-footer.pb-2
+                        %div{:style=>"overflow:auto;"}
+                            %div.text-center
+                        %button#prevBtn.btn-form-cal{:type=>"button",'ng-click'=>"nextPrev(-1)",'ng-show'=>"btnPrev"} ย้อยกลับ
+                        %button#nextBtn.btn-form-cal{:type=>"button",'ng-click'=>"nextPrev(1)",'ng-show'=>"btnNext"} ถัดไป
+                        %button#nextBtn.btn-form-cal{:type=>"button",'ng-click'=>"submit()",'ng-show'=>"btnCal"} คำนวน
+                        -# %button#nextBtn.btn-form-cal{:type=>"button",'ng-click'=>"submit()"} คำนวน

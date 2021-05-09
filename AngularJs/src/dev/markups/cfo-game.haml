@@ -1,0 +1,111 @@
+.cfo-main-wrap{"ng-controller"=>"cfoGame"}
+    .cfo-sub-wrap
+        .cfo-main-body
+            .cfo-main-container
+                +include 'src/dev/markups/cfo-partials/header.haml'
+                .container-fluid
+                    .container.text-center
+                        %h2.mt-5.mb-5 รูปต่อไปนี้เป็นกิจกรรมอยู่ในประเภทใด {{ imgName }}
+                    .container
+                        .row{'ng-show'=>"!btnDisplay"}
+                            .col-12
+                                %img.img-game.img-fluid.rounded.mx-auto.d-block{:src=>"img/{{ imgArray[imgNumber][0] }}"}
+                        .container{'ng-show'=>"!btnDisplay"}
+                            .row.mt-4
+                                .col-12.text-center
+                                    .btn.btn-type{'ng-click'=>"answerQuestion(imgNumber,1)", 'ng-class'=>"btnDisplay ? 'disabled' : ''"} ประเภทที่ 1
+                                    .btn.btn-type-info{'ng-click'=>"infoGameModal(1)"}
+                                        %img{:src=>"img/cfo_info_game.svg"} 
+                            .row.mt-2 
+                                .col-12.text-center
+                                    .btn.btn-type{'ng-click'=>"answerQuestion(imgNumber,2)", 'ng-class'=>"btnDisplay ? 'disabled' : ''"} ประเภทที่ 2
+                                    .btn.btn-type-info{'ng-click'=>"infoGameModal(2)"}
+                                        %img{:src=>"img/cfo_info_game.svg"} 
+                            .row.mt-2
+                                .col-12.text-center
+                                    .btn.btn-type{'ng-click'=>"answerQuestion(imgNumber,3)", 'ng-class'=>"btnDisplay ? 'disabled' : ''"} ประเภทที่ 3
+                                    .btn.btn-type-info{'ng-click'=>"infoGameModal(3)"}
+                                        %img{:src=>"img/cfo_info_game.svg"} 
+                        .container.h-25{'ng-show'=>"btnDisplay"}
+                            .row.mt-2
+                                .col-12.text-center
+                                    .btn.btn-type{'ng-click'=>"reloadRoute()"} เริ่มเล่นใหม่
+        .cfo-main-footer
+            .container-fluid
+                .container.text-center.p-2
+                    .cfo-footer
+                        %a{:href=>"#/"}
+                            .btn.btn-lg.btn-footer ย้อนกลับ
+                        .btn.btn-lg.btn-footer คำนวณ
+    
+        -# Modal Game info
+        #cfoGameModal.modal.fade{:tabindex=>"-1", :role=>"dialog", :aria-labelledby=>"cfoGameModalLabel", :aria-hidden=>"true"}
+            .modal-dialog.modal-dialog-centered{:role=>"document"}
+                .modal-content.modal-home
+                    .modal-header.cfo-modal-header
+                        .modal-title
+                            %h2 
+                                %span 
+                                    %img{:src=>"img/cfo_info_game.svg", :width=>"24"}
+                                    รายละเอียดประเภทที่ {{ infoType }}
+                    .modal-body.text-center
+                        %h3{'ng-bind-html'=>"infoContent"}
+                    .modal-footer.cfo-modal-footer.text-center
+                        %a{:href=>"#/"}
+                            .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
+                        %a{:href=>"#/cfo-form-gov"}
+                            .btn.btn-lg.btn-inModal.bd-radius-25 คำนวณ
+
+
+        -# Modal totalScore
+        #cfoTotalScoreModal.modal.fade{:tabindex=>"-1", :role=>"dialog", :aria-labelledby=>"cfoTotalScoreModalLabel", :aria-hidden=>"true"}
+            .modal-dialog.modal-dialog-centered{:role=>"document"}
+                .modal-content.modal-home{'ng-show'=>"!answerInfoDisplay"}
+                    .modal-header.cfo-modal-header.text-center
+                        .modal-title
+                            %h2 ยินดีด้วยคุณได้คะแนน
+                    .modal-body
+                        .container
+                            .row
+                                .col-12
+                                    %img.float-right{:src=>"img/cfo_icon_info_gray.svg", :width=>"32", 'ng-click'=>"answerInfo(true)"}
+                            .row
+                                .col-12
+                                    %img.img-fluid.rounded.mx-auto.d-block{:src=>"img/cfo_total_score.png", :width=>"70%"}
+                            .row
+                                .col-12.text-center
+                                    %h1 {{ totalScore }} / 5     
+                    .modal-footer.cfo-modal-footer.text-center
+                        %a{:href=>"#/"}
+                            .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
+                        %a{:href=>"#/cfo-form-gov"}
+                            .btn.btn-lg.btn-inModal.bd-radius-25 คำนวณ
+
+                .modal-content.modal-home{'ng-show'=>"answerInfoDisplay"}
+                    .modal-header.cfo-modal-header.text-center
+                        .modal-title
+                            %h2 เฉลย !!!
+                    .modal-body
+                        %table.table
+                            %thead
+                                %tr
+                                    %th
+                                    %th 
+                                    %th คำตอบ
+                            %tbody
+                                %tr{'ng-repeat'=>"item in answer track by $index"}
+                                    %td ภาพที่ {{ $index+1 }}
+                                    %td 
+                                        %img.rounded.mx-auto.d-block{:src=>"img/{{ item.img_name }}",'width'=>"24px"}
+                                    %td
+                                        {{ item.answer }} 
+                    .modal-footer.cfo-modal-footer.text-center
+                        %a{:href=>"#/"}
+                            .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
+                        %a{:href=>"#/cfo-form-gov"}
+                            .btn.btn-lg.btn-inModal.bd-radius-25 คำนวณ
+
+
+
+
+

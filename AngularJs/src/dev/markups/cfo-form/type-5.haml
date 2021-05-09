@@ -1,0 +1,115 @@
+.container.bg-1.mt-4
+    .row
+        .col-4.col-md-3
+            %img.img-fluid.rounded{:src=>"img/SepticTanks.PNG"}
+        .col.8.text-center
+            .sub-bg-1
+                %h2 ประเภทที่ 1 
+                %h3 ส้วม, septic tanks
+.container.mt-4
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/personnel.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    จำนวนบุคลากร
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"num_psn"}
+                    คน
+
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/workTime.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    วันทำงาน
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"wk_day"}
+                    วันต่อปี
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/school.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    จำนวนครู และนักเรียน
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"num_school"}
+                    คน
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/day_school.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    วันเปิดภาคเรียน
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"day_school"}
+                    วันต่อปี
+
+.container.bg-1.mt-4
+    .row
+        .col-4.col-md-3
+            %img.img-fluid.rounded{:src=>"img/cfo_scope8.PNG"}
+        .col.8.text-center
+            .sub-bg-1
+                %h2 ประเภทที่ 1 
+                %h3 ปริมาณน้ำเสีย
+
+.container.mt-4
+    .card.mt-2.pb-2
+        .row
+            .col-12.pt-2.form-text
+                .ml-2 บ่อเติมอากาศ
+        .row
+            .col-3.col-md-3.text-right
+                %img.img-fluid.rounded.ml-2{:src=>"img/cfo_scope7.PNG"}
+            .col-9.col-md.pt-2
+                .row
+                    .col-3.col-md-5.col-lg-5.pr-0.form-text
+                        BOD ขาเข้า
+                    .col.col-lg.form-text
+                        %input.form-control.form-cfo{:type=>"number",'ng-model'=>"art_bod"}
+                        มิลลิกรัมต่อลิตร 
+                .row
+                    .col-3.col-md-5.col-lg-5.pr-0.form-text
+                        ปริมาณ
+                    .col.col-lg.form-text
+                        %input.form-control.form-cfo{:type=>"number",'ng-model'=>"art_pond"}
+                        ลูกบาศก์เมตรต่อปี 
+    .card.mt-2.pb-2
+        .row
+            .col-12.pt-2.form-text
+                .ml-2 บึงประดิษฐ์
+        .row
+            .col-3.col-md-3.text-right
+                %img.img-fluid.rounded.ml-2{:src=>"img/swamp.PNG"}
+            .col-9.col-md.pt-2
+                .row
+                    .col-3.col-md-5.col-lg-5.pr-0.form-text
+                        BOD ขาเข้า
+                    .col.col-lg.form-text
+                        %input.form-control.form-cfo{:type=>"number",'ng-model'=>"bpd_bod"}
+                        มิลลิกรัมต่อลิตร 
+                .row
+                    .col-3.col-md-5.col-lg-5.pr-0.form-text
+                        ปริมาณ
+                    .col.col-lg.form-text
+                        %input.form-control.form-cfo{:type=>"number",'ng-model'=>"bpd"}
+                        ลูกบาศก์เมตรต่อปี
+    .card.mt-2.pb-2
+        .row
+            .col-12.pt-2.form-text
+                .ml-2 ปล่อยสู่ลำรางสาธารณะ
+        .row
+            .col-3.col-md-3
+                %img.img-fluid.rounded.ml-2{:src=>"img/river.PNG"}
+            .col-9.col-md.pt-2
+                .row
+                    .col-3.col-md-5.col-lg-5.pr-0.form-text
+                        ปริมาณ
+                    .col.col-lg.form-text
+                        %input.form-control.form-cfo{:type=>"number",'ng-model'=>"res_pub"}
+                        ลูกบาศก์เมตรต่อปี 

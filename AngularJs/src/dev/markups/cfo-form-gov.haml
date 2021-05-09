@@ -1,0 +1,50 @@
+.cfo-main-wrap{"ng-controller"=>"cfoFormGov"}
+    .cfo-sub-wrap
+        +include 'src/dev/markups/cfo-partials/header.haml'
+        .cfo-main-body
+            .cfo-main-container
+                .container
+                    .row
+                        .col-12.text-center
+                            %h2.mt-4 เลือกระดับ องค์กรปกครองส่วนท้องถิ่น
+                    .row
+                        .col-12.col-md-12.text-center
+                            .btn.btn-lg.btn-outline-form-gov.bd-radius-15.w-75{'ng-click'=>"formGov('special')"}
+                                องค์กรปกครองส่วนท้องถิ่น
+                                %br
+                                รูปแบบพิเศษ
+                            .btn.btn-lg.btn-outline-form-gov.bd-radius-25.w-75{'ng-click'=>"formGov('state')"} เทศบาลนคร
+                            .btn.btn-lg.btn-outline-form-gov.bd-radius-25.w-75{'ng-click'=>"formGov('city')"} เทศบาลเมือง
+                            .btn.btn-lg.btn-outline-form-gov.bd-radius-25.w-75{'ng-click'=>"formGov('district')"} เทศบาลตำบล
+        -# .cfo-main-footer.h-50
+        .cfo-main-footer
+            .container-fluid
+                .container.text-center.p-2
+                    .cfo-footer
+                        %a{:href=>"#/"}
+                            .btn.btn-lg.btn-footer.w-50 ย้อนกลับ
+    
+    -# Modal Form Gov
+    #cfoFormGovModal.modal.fade{:tabindex=>"-1", :role=>"dialog", :aria-labelledby=>"cfoFormGovModalLabel", :aria-hidden=>"true"}
+        .modal-dialog.modal-dialog-centered{:role=>"document"}
+            .modal-content.modal-home
+                .modal-header.cfo-modal-header
+                    .modal-title
+                        %h2 {{ titleGov }}
+                .modal-body
+                    %form{:name=>"govForm"}
+                        .form-group.row
+                            %lablel.cfo-label.col-4.text-right {{ titleForm }}
+                            .col-7
+                                %input.form-control.cfo-form{:type=>"text",:name=>"city",'ng-model'=>"city",:required => true}
+                        .form-group.row
+                            %lablel.cfo-label.col-4.text-right จังหวัด
+                            .col-7
+                                %input.form-control.cfo-form{:type=>"text",:name=>"province", "ui-items"=>"province_names" ,'ng-model'=>"province", :auto-complete=>true ,:required => true}
+                .modal-footer.cfo-modal-footer.text-center
+                    %a{:href=>"#/"}
+                        .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
+                    .btn.btn-lg.btn-inModal.bd-radius-25{'ng-click'=>"submitGov()",'ng-class'=>"!govForm.city.$valid || !govForm.province.$valid ? 'disabled' : ''"}  คำนวณ
+
+
+                                                    

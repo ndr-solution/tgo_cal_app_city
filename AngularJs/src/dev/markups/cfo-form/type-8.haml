@@ -1,0 +1,74 @@
+.container.bg-1.mt-4
+    .row
+        .col-4.col-md-3
+            %img.img-fluid.rounded{:src=>"img/cfo_scope14.PNG"}
+        .col.8.text-center
+            .sub-bg-1
+                %h2 ประเภทที่ 3 
+                %h3 ปริมาณการใช้วัสดุสำนักงาน 
+                    %br และวัสดุสิ้นเปลือง
+.container.mt-4
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/A4-80.PNG"}
+        .col-9.col-md.card.pt-3
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    กระดาษ A4 สีขาว 80 แกรม
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"paper80"}
+                    รีมต่อปี
+
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/A4-70.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    กระดาษ A4 สีขาว 70 แกรม
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"paper70"}
+                    รีมต่อปี
+
+.container.bg-1.mt-4
+    .row
+        .col-4.col-md-3
+            %img.img-fluid.rounded{:src=>"img/cfo_scope15.png"}
+        .col.8.text-center
+            .sub-bg-1
+                %h2 ประเภทที่ 3 
+                %h3 ปริมาณขยะ 
+                    %br (ส่งให้หน่วยงานอื่นดำเนินการ)
+.container.mt-4
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/cfo_scope6.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    เทกอง
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"dmp_t3"}
+                    กิโลกรัมต่อปี
+
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/burn2.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    ฝังกลบ
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"landfill_t3"}
+                    กิโลกรัมต่อปี
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/burn1.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    เผาเทกอง
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"brn_bk_t3"}
+                    กิโลกรัมต่อปี
+

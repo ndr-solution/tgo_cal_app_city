@@ -1,0 +1,74 @@
+.container.bg-1.mt-4
+    .row
+        .col-4.col-md-3
+            %img.img-fluid.rounded{:src=>"img/cfo_scope6.PNG"}
+        .col.8.text-center
+            .sub-bg-1
+                %h2 ประเภทที่ 1 
+                %h3 ปริมาณขยะ (ดำเนินการเอง)
+.container.mt-4
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/cfo_scope6.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    เทกอง
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model' => "dmp_t1"}
+                    กิโลกรัมต่อปี
+
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/burn2.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    ฝังกลบ
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model' => "landfill_t1"}
+                    กิโลกรัมต่อปี
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/burn1.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    เผาเทกอง
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model' => "brn_bk_t1"}
+                    กิโลกรัมต่อปี
+
+
+.container.bg-1.mt-4
+    .row
+        .col-4.col-md-3
+            %img.img-fluid.rounded{:src=>"img/lamp.png"}
+        .col.8.text-center
+            .sub-bg-1
+                %h2 ประเภทที่ 2 
+                %h3 ปริมาณการใช้พลังงานไฟฟ้า
+.container.mt-4
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/Pay.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    จำนวนบุคลากร
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"eng_pay"}
+                    คน
+
+    .row.mt-2
+        .col-3.col-md-2.text-right
+            %img.img-fluid.rounded{:src=>"img/Free.PNG"}
+        .col-9.col-md.card.pt-4
+            .row
+                .col-5.col-md-5.col-lg-5.pr-0.form-text
+                    วันทำงาน
+                .col.col-lg.form-text
+                    %input.form-control.form-cfo{:type=>"number",'ng-model'=>"eng_free"}
+                    วันต่อปี
+
+

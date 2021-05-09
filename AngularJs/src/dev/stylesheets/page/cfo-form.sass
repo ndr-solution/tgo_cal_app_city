@@ -1,0 +1,103 @@
+
+
+.bg-1
+  background-color: #F8D7DA
+  padding: 6px 0px 6px 7px
+  border-radius: .25rem!important
+  box-shadow: 0px 6px 6px #00000029
+
+.sub-bg-1
+  background-color: #F5C6CB
+  height: 100%
+  border-top-left-radius: 15px
+  border-bottom-left-radius: 15px
+  padding-top: 10%
+   
+
+.img-form
+  width: 70px
+  border-radius: 2.25rem!important;
+  @media screen and (min-width: 1024px)
+    width: 130px
+
+.form-text
+  @media #{ $media-phone5-SE }
+    font-size: xx-small
+
+  @media screen and (min-width: 720px)
+    font-size: x-large
+    padding-top: 1.2rem
+
+  @media screen and (min-width: 812px)
+    font-size: x-large
+
+  @media #{ $media-iPad-Pro }
+    font-size: 3.5rem
+    padding-top: 2.2rem
+
+  @media screen and (min-width: 1440px)
+    padding-top: 2.5rem
+    font-size: 4.5rem
+
+
+.card
+    border: none 
+    
+.form-cfo
+  display: inline
+  width: 50px
+  margin: 0
+  padding: 0
+  font-size: 1.7rem
+  
+  
+
+  @media #{ $media-phone5-SE }
+    font-size: 1.7rem
+
+  @media #{ $media-iPad-Pro }
+    font-size: 3rem
+
+
+#regForm
+
+.tab 
+  display: none
+
+
+.btn-form-cal
+  border: 3px #9C9994 solid
+  border-radius: 25px
+  background-color: #FFFFFF
+  font-size: 1.2em
+  width: 8rem
+
+.btn-form-cal:focus
+  outline: none
+
+
+
+
+/* Make circles that indicate the steps of the form: */
+.step 
+  height: 15px
+  width: 15px
+  margin: 0 2px
+  // background-color: #bbbbbb
+  border: 1px #D8D8D8 solid
+  border-radius: 50%
+  display: inline-block
+  opacity: 0.5
+
+
+.step-active 
+  background: #D8D8D8 !important;
+  color: #FFFFFF !important;
+
+.step.step-active  
+  opacity: 1
+
+
+/* Mark the steps that are finished and valid: */
+.step.finish 
+  background-color: #04AA6D

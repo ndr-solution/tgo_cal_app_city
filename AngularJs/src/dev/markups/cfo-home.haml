@@ -1,0 +1,63 @@
+.cfo-main-wrap
+    .cfo-sub-wrap
+        .cfo-home-center
+            .cfo-home-bg
+                .container.text-center
+                    %h1.cfo-title-1.pt-5 การส่งเสริมการจัดทำคาร์บอนฟุตพริ้นท์
+                    .cfo-logo-tgo.mt-5.mb-5
+                        %img{:src=>"img/cfo_logo_tgo.svg"}
+        .cfo-home-bottom
+            .container.text-center
+                %h1.cfo-title-1.pt-5 กรุณาเลือกระดับที่ท่านต้องการ
+                %a{:href=>"#/home"}
+                    .panel.panel-home-cfo
+                        .panel-body
+                            .panel-home-title
+                                %h2 ระดับเมือง (CCF)
+                            .container.mt-2
+                                .row
+                                    .col-4.col-md-5.text-right
+                                        %img.ml-2{:src=>"img/cfo_logo_pmr_sm.png"}
+                                    .col-8.col-md-6.text-left
+                                        %h4.home-title การวิเคราะห์การปล่อย
+                                            %br ก๊าซเรือนกระจกระดับเมือง
+                        .ccf-link.material-icons link   
+                .panel.panel-home-cfo.mt-2{:data-toggle=>"modal", :data-target=>"#cfoHomeModal"}
+                    .panel-body
+                        .panel-home-title
+                            %h2 ระดับองค์กร (CFO)
+                        .panel-home-subtitle
+                            %h4.home-title การวิเคราะห์การปล่อยก๊าซเรือนกระจก
+                                %br ระดับองค์กรปกครองส่วนท้องถิ่น
+                %a{:href=>"#/"}
+                    .panel.panel-home-cfo.mt-2
+                        .panel-body
+                            .container.mt-1
+                                .row
+                                    .col-4.col-md-5.text-right
+                                        %img.ml-2{:src=>"img/cfo_local_graph.png"}
+                                    .col-8.col-md-6.text-left
+                                        %h4.home-title-sec-3
+                                            ระบบรายงานข้อมูลก๊าซเรือนกระจกของ 
+                                            องค์กรปกครองส่วนท้องถิ่นและเมือง
+                            .ccf-link.material-icons link
+            
+            
+            .container.mt-2
+                .row
+                    .col-12.text-center
+                        %p หมายเหตุ มีการบันทึกในฐานข้อมูลขององค์การบริหารจัดการก๊าซเรือนกระจก (องค์การมหาชน)
+                            %br
+                            %small Version 1.4
+
+    -# Modal
+    #cfoHomeModal.modal.fade{:tabindex=>"-1", :role=>"dialog", :aria-labelledby=>"cfoHomeModalLabel", :aria-hidden=>"true"}
+        .modal-dialog.modal-dialog-centered{:role=>"document"}
+            .modal-content.modal-home
+                .modal-body
+                    %a{:href=>"#/cfo-game"}
+                        .button-home-modal 
+                            %p.button-modal-text แบบทดสอบความเข้าใจ
+                    %a{:href=>"#/cfo-form-gov"}
+                        .button-home-modal.mt-2 
+                            %p.button-modal-text คำนวณ

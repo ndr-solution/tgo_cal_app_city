@@ -63,7 +63,9 @@ module.exports = function(grunt) {
           'bower_components/ng-file-upload/ng-file-upload.min.js',
           'bower_components/angular-tree-control/angular-tree-control.js',
           'bower_components/angular-tree-control/tree-control.js',
-          'bower_components/angular-messages/angular-messages.min.js'
+          'bower_components/angular-messages/angular-messages.min.js',
+          'bower_components/angular-steps/dist/angular-steps.js',
+          'bower_components/angular-animate/angular-animate.js'
         ],
         dest: '<%= paths.export.js %>', filter: 'isFile'},
       libCss: {
@@ -72,11 +74,12 @@ module.exports = function(grunt) {
           'src/lib/stylesheets/*',
           'bower_components/bootstrap/dist/css/bootstrap.min.css',
           'bower_components/angular-tree-control/css/tree-control.css',
-          'bower_components/angular-tree-control/css/tree-control-attribute.css'
+          'bower_components/angular-tree-control/css/tree-control-attribute.css',
+          'bower_components/angular-steps/dist/angular-steps.css'
         ],
         dest: '<%= paths.export.css %>', filter: 'isFile'},
       js: {expand: true, flatten: true, src: ['src/dev/javascripts/pages/*'], dest: '<%= paths.export.js %>', filter: 'isFile'},
-      img: {expand: true, flatten: true, src: ['src/dev/images/*', 'bower_components/angular-tree-control/images/*'], dest: '<%= paths.export.img %>', filter: 'isFile'},
+      img: {expand: true, flatten: true, src: ['src/dev/images/*', 'bower_components/angular-tree-control/images/*'], dest: '<%= paths.export.img %>'},
       svg: {expand: true, flatten: true,src: ['src/dev/vectors/*'], dest: '<%= paths.export.svg %>', filter: 'isFile'}
     },
     cssmin: {

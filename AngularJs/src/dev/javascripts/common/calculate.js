@@ -1,25 +1,3 @@
-// app.factory("connect_api",function(){
-//     return{
-//         getcoff: function(){
-//             var result = "";
-//             $.ajax({
-//                 type: "get",
-//                 async: true,
-//                 timeout:3000,
-//                 url: 'http://113.53.233.60/pmrapp-api/v1/city_cal/coeffs/current',
-//                 success: function(data){
-//                     result = data;
-//                 },
-//                 error: function(errMsg){
-//                     console.log("errMsg"+errMsg);
-//                 }
-//             });
-//             return result;
-//         },
-//     };
-
-// });
-
 app.factory("connect_api",function(){
     return{
         getcoff: function(){
@@ -56,26 +34,6 @@ app.factory("formular",function(connect_api,$route){
         getcoff: function(){
             $route.reload();
             var coff_server = connect_api.getcoff();
-            //var self = this;
-            // var coff_default_str = '{"industry":[1.92,4.76,1940.6],"travel":[5.11,14.57,12742.01],"residence":[4.14,8.81,4663.2],"agriculture":[2.96,6.34,931.67]}';
-            // coffStorage_str = localStorage.getItem('coffStorage');
-            // if(coffStorage_str == null){
-            //     localStorage.setItem("coffStorage", coff_default_str); 
-            //     coff = JSON.parse(coff_default_str);
-            // }else{
-            //     coff = JSON.parse(coffStorage_str);
-            // }        
-            //var coff_server = connect_api.getcoff();
-            // coffStorage_str = localStorage.getItem('coffStorage');
-            // coff = JSON.parse(coffStorage_str);
-            // console.log("delaGetData :",coffStorage_str);                 
-            //coff_server = "";
-            // if(coff_server !=""){
-            //     coff = coff_server;
-            //     localStorage.setItem("coffStorage",JSON.stringify(coff_server));
-            // }
-            //console.log("coff:",coff);
-            //return coff;
         },
         calculate: function(citytype,data){   
 
