@@ -19,7 +19,11 @@ app.config(function($routeProvider,$locationProvider,$compileProvider){
       templateUrl : "cfo-form.html",
       controller : 'cfoFormInit'
     })
-
+    .when("/cfo-result",{
+      templateUrl : "cfo-result.html",
+      controller : 'cfoResultInit'
+    })
+    
     // App city
     .when("/home",{
       templateUrl : "home.html",
@@ -59,3 +63,4 @@ app.controller('cfoHomeInit',function(){});
 app.controller('cfoGameInit',function(){});
 app.controller('cfoFormGovInit',function(){});
 app.controller('cfoFormInit',function(){});
+app.controller('cfoResultInit',function(){});

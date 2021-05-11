@@ -1,0 +1,95 @@
+.cfo-main-wrap{"ng-controller"=>"cfoResult"}
+    .cfo-sub-wrap
+        +include 'src/dev/markups/cfo-partials/header.haml'
+        .container
+            .row.mt-4
+                .col-12.text-center 
+                    %h1 {{ cityType }} {{ gov.city }}
+                    %h2 จังหวัด {{ gov.province }}
+        
+        .container
+            .container.cfo-content-result
+                %h1.mt-2 ปริมาณการปล่อยก๊าซเรือนกระจก
+                .cfo-content-result-ghg
+                    .box-circle.text-center
+                        %h2.h1-circle {{ ghgTotal | number: 2  }}
+                            %h3 tCO
+                                %sub 2
+                                eq / ปี
+                    %button.box-circle-graph{:data-toggle=>"modal", :data-target=>"#cfoGraphModal"}
+                        -# %span.material-icons bar_chart
+                        %span.material-icons
+                            %img{:src=>"img/Graph-icon.svg",:width=>"24"}
+
+            .container.cfo-content-result.mt-2
+                .cfo-content-result-tree
+                    .box-circle-tree.text-center
+                        %h2.h1-circle {{ ghg_tree_total | number: 2 }}
+                        %h3 tCO
+                            %sub 2
+                            eq / ปี
+                    .row.mt-4
+                        .col-4
+                        .col-7
+                            %h1.mt-2 ปริมาณการปล่อยก๊าซเรือนกระจก
+                            %h2 ปริมาณการดูดกลับ
+                            %h3 การดูดกลับของต้นไม้แต่ละประเภท
+                    .row
+                        .col-4
+                        .col-7.card.card-tree.pt-2
+                            .row.tree-detail
+                                .col-5
+                                    %p ทั่วไป
+                                .col-7 
+                                    %p 
+                                        {{ ghg_tree.tree.ghg_t_co | number: 2 }} tCO 
+                                        %sub 2 
+                                        eq / ปี
+                            .row.tree-detail
+                                .col-5
+                                    %p ป่าชายเลน
+                                .col-7 
+                                    %p 
+                                        {{ ghg_tree.mgr_frs.ghg_t_co | number: 2 }} tCO 
+                                        %sub 2 
+                                        eq / ปี
+                            .row.tree-detail
+                                .col-5
+                                    %p ปาล์ม
+                                .col-7 
+                                    %p 
+                                        {{ ghg_tree.palm.ghg_t_co | number: 2 }} tCO 
+                                        %sub 2 
+                                        eq / ปี
+                            .row.tree-detail
+                                .col-5
+                                    %p เถาวัลย์
+                                .col-7 
+                                    %p 
+                                        {{ ghg_tree.vine.ghg_t_co | number: 2 }}  tCO 
+                                        %sub 2 
+                                        eq / ปี
+    
+    
+
+        .container.pb-4
+            .row.mt-2
+                .col-12.d-flex.justify-content-center
+                    %button.btn.btn-result.btn-lg{} ข้อเสนอแนะ
+            .row.mt-2
+                .col-12.d-flex.justify-content-center
+                    %button.btn.btn-result.btn-lg{} บันทึก PDF
+    
+    -# Modal-graph
+    #cfoGraphModal.modal.fade{:tabindex=>"-1", :role=>"dialog", :aria-labelledby=>"cfoGraphModalLabel", :aria-hidden=>"true"}
+        .modal-dialog.modal-dialog-centered{:role=>"document"}
+            .modal-content.modal-home
+                .modal-header.cfo-modal-header.text-center
+                    .modal-title
+                        %h2 
+                            %span
+                                %img{:src=>"img/Graph-icon.svg",:width=>"24"}
+                            กราฟแสดงการปล่อยก๊าซเรือนกระจก
+                .modal-body
+                    #dcontainer
+              

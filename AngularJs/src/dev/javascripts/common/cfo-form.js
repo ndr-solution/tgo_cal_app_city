@@ -46,7 +46,6 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
   $scope.r22 = 100;
   $scope.ef_r22 = 1760;
 
-  // ปริมาณที่เติมสารดับเพลิง, ปริมาณที่เติมสารทำความเย็น ในเครื่องปรับอากาศ  
   $scope.ogn_ftz = 100;
   $scope.ef_ogn_ftz = 0.1097;
   $scope.fml_ftz46 = 100;
@@ -146,6 +145,7 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     formWastewater(); //GHG Wastewater
     formgarbage(); //GHG Garbage
     formTree(); //GHG Tree
+    $window.location.href = '#/cfo-result';
   };
 
   function formGHG(){
@@ -216,8 +216,9 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
       paper80:{ paper80:$scope.paper80, EF:$scope.ef_paper80, kg:($scope.paper80*2.4948), ghg_kg_co:(($scope.paper80*2.4948) * $scope.ef_paper80), ghg_t_co:parseFloat(((($scope.paper80*2.4948) * $scope.ef_paper80)/1000).toFixed(2))},
       paper70:{ paper70:$scope.paper70, EF:$scope.ef_paper70, kg:($scope.paper70*2.183), ghg_kg_co:(($scope.paper70*2.183) * $scope.ef_paper70), ghg_t_co:parseFloat(((($scope.paper70*2.183) * $scope.ef_paper70)/1000).toFixed(2))},
     };
-
-    console.log("paper_cst:",paper_cst);
+    paper_cst.total = (paper_cst.paper80.ghg_t_co + paper_cst.paper70.ghg_t_co);
+    localStorage.setItem('paper_cst', JSON.stringify(paper_cst));
+    // console.log("paper_cst:",paper_cst);
   }
    
   function formWastewater (){

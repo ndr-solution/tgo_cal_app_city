@@ -11,6 +11,9 @@ app.controller("cfoPartials",function($scope,$rootScope,$location,$window){
         case "cfo-form":
                 $scope.headerTitle = "ระดับองค์กร (CFO)";
             break;
+        case "cfo-result":
+                $scope.headerTitle = "สรุป";
+            break;
         default:
             break;
     }
