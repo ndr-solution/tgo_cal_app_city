@@ -23,7 +23,15 @@ app.config(function($routeProvider,$locationProvider,$compileProvider){
       templateUrl : "cfo-result.html",
       controller : 'cfoResultInit'
     })
-    
+    .when("/cfo-recommend",{
+      templateUrl : "cfo-recommend.html",
+      // controller : 'cfoRecommendInit'
+    })
+    .when("/cfo-recom-type/:type",{
+      templateUrl : "cfo-recom-type.html",
+      // controller : 'cfoRecommenTypedInit'
+    })
+
     // App city
     .when("/home",{
       templateUrl : "home.html",
@@ -64,3 +72,4 @@ app.controller('cfoGameInit',function(){});
 app.controller('cfoFormGovInit',function(){});
 app.controller('cfoFormInit',function(){});
 app.controller('cfoResultInit',function(){});
+

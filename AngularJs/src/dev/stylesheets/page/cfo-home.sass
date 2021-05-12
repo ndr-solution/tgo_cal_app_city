@@ -1,34 +1,53 @@
+.cfo-home-wrap
+    background:#1CABD1
+    min-height: 100%
+
+// .cfo-home-bg
+//     @media screen and (max-height: 568px)
+//         min-height: 65% !important
+
+//     @media screen and (max-height: 736px)
+//         min-height: 65% !important
+
+//     @media screen and (min-height: 1024px)
+//         min-height: 65% !important
+//         background-size: 70%
+    
+
+img.cfo-logo-tgo
+    @media  #{ $media-md }
+        width: 330px
+    @media #{ $media-lg }
+        width: 390px
+    
+ 
+    
+// .cfo-home-top
+//     margin: 0
+//     padding: 0
 
 .cfo-home-bg
-    @media screen and (max-height: 568px)
-        min-height: 65% !important
-
-    @media screen and (max-height: 736px)
-        min-height: 65% !important
-
-    @media screen and (min-height: 1024px)
-        min-height: 65% !important
-        background-size: 70%
-    
-    .cfo-logo-tgo
-        img
-            @media screen and (min-width: 1024px)
-                width: 530px
-            @media screen and (min-width: 768px)
-                width: 412px
-    
-.cfo-home-top
-    margin: 0
-    padding: 0
-
-.cfo-home-center
-    min-height: 50%
-    background-image: url('../img/cfo_building.svg')
+    height: 30%
+    background-image: url('../img/cfo-obt.svg')
     background-repeat: no-repeat
-    background-size: 100%
     background-position: bottom
+    background-size: 100%
+
+    @media screen and (max-height: 576px)
+        height: 30%
+    @media #{ $media-sm }
+        background-size: 50%
+    @media #{ $media-md }
+        height: 48%
+        background-size: 50%
+    @media #{ $media-lg }
+        background-size: 44%
+    @media #{ $media-xl }
+        background-size: 30%
+
         
-.cfo-home-bottom
+        
+.cfo-home-footer
     // min-height: 50%
     background:#1CABD1
     margin: 0
@@ -84,25 +103,29 @@
         font-size: 2rem
 
 
+.btn-home-title
+    border: 3px  #9C9994 solid
+    border-radius: 25px
+    background-color: #C8E852
+    // text-align: center
+    // display: block
+    // margin-left: auto
+    // margin-right: auto
+    // padding-top: 5px
+
+
+
 /*Modal Home */
 .modal-home
     border-radius: 10px
-    padding: 15px
-    .button-home-modal
-        border: 3px  #C4D846 solid
-        border-radius: 15px
-        // background-color: #C8E852
-        width: 140px
-        height: 40px
-        text-align: center
-        display: block
-        margin-left: auto
-        margin-right: auto
 
-        .button-modal-text
-            font-size: 1.7rem
-            margin-top: 5px
-            margin-left: auto
-            margin-right: auto
-            vertical-align: middle
-        
+.btn-modal-home
+    min-height: 50%
+    width: 60%
+    border: 3px  #C4D846 solid
+    border-radius: 15px
+    font-size: 1.7rem
+    margin-left: auto
+    margin-right: auto
+    vertical-align: middle
+    

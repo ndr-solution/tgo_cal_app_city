@@ -1,0 +1,34 @@
+.cfo-main-wrap{"ng-controller"=>"cfoRecommend"}
+    .cfo-sub-wrap
+        .cfo-main-body
+            .cfo-main-container
+                +include 'src/dev/markups/cfo-partials/header.haml'
+                .container
+                    .row.mt-4
+                        .col-12.text-center 
+                            %h1 แนวทางการลดก๊าซเรือนกระจก
+                .container
+                    .row
+                        .col-6
+                            %a{:href=>"#/cfo-recom-type/energy"}
+                                %img.img-fluid.float-right.card.card-cfo-recom{:src=>"img/cfo-energy-recom.svg",'ng-class'=>"max_value.x == 'energy' ? 'border-yellow' : ''"}
+                        .col-6.text-center 
+                            %a{:href=>"#/cfo-recom-type/garbage"}
+                                %img.img-fluid.card.card-cfo-recom{:src=>"img/cfo-garbage-recom.svg", 'ng-class'=>"max_value.x == 'garbage' ? 'border-yellow' : ''"}
+                    .row.mt-4
+                        .col-6.text-center
+                            %a{:href=>"#/cfo-recom-type/tree"}
+                                %img.img-fluid.float-right.card.card-cfo-recom{:src=>"img/cfo-tree-recom.svg", 'ng-class'=>"max_value.x == 'tree' ? 'border-yellow' : ''"}
+                        .col-6.text-center
+                            %a{:href=>"#/cfo-recom-type/fuel"}
+                                %img.img-fluid.card.card-cfo-recom{:src=>"img/cfo-fuel-recom.svg",'ng-class'=>"max_value.x == 'fuel' ? 'border-yellow' : ''"}
+
+
+        .cfo-main-footer
+            .container-fluid
+                .container.text-center.p-2
+                    .cfo-footer
+                        %a{:href=>"#/cfo-result"}
+                            .btn.btn-lg.btn-footer ย้อนกลับ
+                        .btn.btn-lg.btn-footer บันทึก PDF
+    

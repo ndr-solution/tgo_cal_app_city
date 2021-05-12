@@ -57,8 +57,7 @@
                                 .col-5
                                     %p ปาล์ม
                                 .col-7 
-                                    %p 
-                                        {{ ghg_tree.palm.ghg_t_co | number: 2 }} tCO 
+                                    %p {{ ghg_tree.palm.ghg_t_co | number: 2 }} tCO 
                                         %sub 2 
                                         eq / ปี
                             .row.tree-detail
@@ -75,7 +74,8 @@
         .container.pb-4
             .row.mt-2
                 .col-12.d-flex.justify-content-center
-                    %button.btn.btn-result.btn-lg{} ข้อเสนอแนะ
+                    %a{:href=>"#/cfo-recommend"}
+                        %button.btn.btn-result.btn-lg ข้อเสนอแนะ
             .row.mt-2
                 .col-12.d-flex.justify-content-center
                     %button.btn.btn-result.btn-lg{} บันทึก PDF

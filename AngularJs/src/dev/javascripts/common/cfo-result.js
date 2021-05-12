@@ -34,24 +34,24 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window){
     $scope.ghg_tree = tree;
     $scope.ghg_tree_total = (tree.tree.ghg_t_co + tree.mgr_frs.ghg_t_co ) + (tree.palm.ghg_t_co + tree.vine.ghg_t_co ); 
     $scope.ghgTotal = (fuel.total + LPG.total) + (egs_air_ftz.total + septicTanks.total) + (energy.total + water.total) + (paper.total + waste.total) + (garbage1.total + garbage3.total) + tree.total;
-    console.log("$scope.ghgTotal:",$scope.ghgTotal);
-    
-    console.log("paper:",fuel.total);
-    console.log("LPG:",LPG.total);
-    console.log("egs_air_ftz:",egs_air_ftz.total);
-    console.log("septicTanks:",septicTanks.total);
-    console.log("energy:",energy.total);
-    console.log("water:",water.total);
-    console.log("paper:",paper.total);
-    console.log("waste:",waste.total);
-    console.log("garbage1:",garbage1.total);
-    console.log("garbage3:",garbage3.total);
-    console.log("tree:",tree.total);
+    // console.log("$scope.ghgTotal:",$scope.ghgTotal);
+    // console.log("paper:",fuel.total);
+    // console.log("LPG:",LPG.total);
+    // console.log("egs_air_ftz:",egs_air_ftz.total);
+    // console.log("septicTanks:",septicTanks.total);
+    // console.log("energy:",energy.total);
+    // console.log("water:",water.total);
+    // console.log("paper:",paper.total);
+    // console.log("waste:",waste.total);
+    // console.log("garbage1:",garbage1.total);
+    // console.log("garbage3:",garbage3.total);
+    // console.log("tree:",tree.total);
 
     var ghgType1 = (fuel.total + LPG.total) + (egs_air_ftz.total + septicTanks.total) + (garbage1.total) + (waste.total);
     var ghgType2 = (energy.total);
     var ghgType3 = (water.total + paper.total) + (garbage1.total);
 
+    
     // Create the chart
     Highcharts.chart('dcontainer', {
         chart: {
@@ -66,7 +66,6 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window){
         yAxis: {
             title: {
                 text: '<b>tCO<sub>2</sub>eq/ปี</b>'
-                // text: 'Custom with <b>simple</b> <i>markup</i>',
             }
 
         },

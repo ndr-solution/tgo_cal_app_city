@@ -1,0 +1,26 @@
+.cfo-main-wrap{"ng-controller"=>"cfoRecomType"}
+    .cfo-sub-wrap
+        .cfo-main-body
+            .cfo-main-container
+                +include 'src/dev/markups/cfo-partials/header.haml'
+                %div{'ng-if'=>"disP === 'energy'"}
+                    +include 'src/dev/markups/cfo-recom/energy.haml'
+                %div{'ng-if'=>"disP === 'garbage'"}
+                    +include 'src/dev/markups/cfo-recom/garbage.haml'
+                %div{'ng-if'=>"disP === 'tree'"}
+                    +include 'src/dev/markups/cfo-recom/tree.haml'
+                %div{'ng-if'=>"disP === 'fuel'"}
+                    +include 'src/dev/markups/cfo-recom/fuel.haml'
+
+
+
+
+
+        .cfo-main-footer
+            .container-fluid
+                .container.text-center.p-2
+                    .cfo-footer
+                        %a{:href=>"#/cfo-recommend"}
+                            .btn.btn-lg.btn-footer ย้อนกลับ
+                        .btn.btn-lg.btn-footer บันทึก PDF
+    

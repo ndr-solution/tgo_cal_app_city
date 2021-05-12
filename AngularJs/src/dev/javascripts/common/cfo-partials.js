@@ -14,6 +14,12 @@ app.controller("cfoPartials",function($scope,$rootScope,$location,$window){
         case "cfo-result":
                 $scope.headerTitle = "สรุป";
             break;
+        case "cfo-recommend":
+                $scope.headerTitle = "ระดับองค์กร (CFO)";
+            break;
+        case "cfo-recom-type":
+                $scope.headerTitle = "ระดับองค์กร (CFO)";
+            break;
         default:
             break;
     }
