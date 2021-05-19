@@ -1,4 +1,4 @@
-app.controller("cfoResult",function($scope,$rootScope,$location,$window){
+app.controller("cfoResult",function($scope,$rootScope,$location,$window,cfoPDF){
     
     
     $scope.gov = JSON.parse(localStorage.getItem('formGov'));
@@ -50,7 +50,6 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window){
     var ghgType1 = (fuel.total + LPG.total) + (egs_air_ftz.total + septicTanks.total) + (garbage1.total) + (waste.total);
     var ghgType2 = (energy.total);
     var ghgType3 = (water.total + paper.total) + (garbage1.total);
-
     
     // Create the chart
     Highcharts.chart('dcontainer', {
@@ -65,7 +64,7 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window){
         },
         yAxis: {
             title: {
-                text: '<b>tCO<sub>2</sub>eq/ปี</b>'
+                text: 'tCO2eq/ปี'
             }
 
         },
@@ -103,7 +102,7 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window){
                     },
                     {
                         name: "ประเภทที่ 3",
-                        y: ghgType2,
+                        y: ghgType3,
                     },
                 ]
             }
@@ -111,6 +110,26 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window){
     });
 
 
+    $scope.createPDF = function(){
+        // function padx(c){return (c < 10) ? '0'+c.toString() : c.toString();}
+        // var d = new Date();
+        // var month = padx(d.getMonth()+1);
+        // var date = d.getFullYear()+month+padx(d.getDate());
+        // var time = padx(d.getHours())+padx(d.getMinutes())+padx(d.getSeconds());
+    
+    
+        PDFhtml = cfoPDF.getPage();
+        console.log("PDFhtml:",PDFhtml);
+        document.addEventListener("deviceready", onDeviceReady, false);
+          function onDeviceReady() {
+              let options = {
+                        documentSize: 'A4',
+                        type: 'share',
+                        fileName: "cfo-test"
+                      };
+            pdf.fromData(PDFhtml, options).then(cordova.plugins.email.open()).catch((err)=>console.err(err));
+          }
+      };
 
 
 });

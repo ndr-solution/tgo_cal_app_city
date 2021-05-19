@@ -92,10 +92,7 @@ app.controller("cfoFormGov",function($scope,$rootScope,$location,$window){
         'อุทัยธานี',
         'อุบลราชธานี',
     ];
-    // special = ปกครองพิเศษ
-    // state = นคร
-    // city = เมือง
-    // district = ตำบล
+    // special = ปกครองพิเศษ state = นคร  city = เมือง  district = ตำบล
     $scope.formGov = function(gov){
         switch (gov) {
             case "special":
@@ -121,6 +118,12 @@ app.controller("cfoFormGov",function($scope,$rootScope,$location,$window){
         $scope.cityType = gov;
         $('#cfoFormGovModal').modal('show');
     };
+
+    var gov = JSON.parse(localStorage.getItem('formGov'));
+    if(gov){
+        $scope.city = gov.city;
+        $scope.province = gov.province;
+    }
 
     $scope.submitGov = function(){
         var cityType = $scope.cityType;

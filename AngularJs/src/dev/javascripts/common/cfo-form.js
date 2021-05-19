@@ -1,136 +1,251 @@
 app.controller("cfoForm",function($scope,$rootScope,$location,$window){
 
-  // ปริมาณการใช้น้ำมันเชื้อเพลิง 
-  $scope.dsl_mch = 10;
-  $scope.dsl_v = 100;
+  // ปริมาณการใช้น้ำมันเชื้อเพลิง
+  var fuel = JSON.parse(localStorage.getItem('fuel_cst'));
+  if(fuel){
+    $scope.dsl_mch = fuel.dsl_mch.dsl_mch;
+    $scope.dsl_v = fuel.dsl_mch.volume;
+    $scope.gsl_mch = fuel.gsl_mch.gsl_mch;
+    $scope.gsl_v = fuel.gsl_mch.volume;
+    $scope.dsl_car = fuel.dsl_car.dsl_car;
+    $scope.dslc_v = fuel.dsl_car.volume;
+    $scope.gsl_car = fuel.gsl_car.gsl_car;
+    $scope.gslc_v = fuel.gsl_car.volume;
+    $scope.lpg_car = fuel.lpg_car.lpg_car;
+    $scope.lpg_v = fuel.lpg_car.volume;
+    $scope.ngv_car  = fuel.ngv_car.ngv_car;
+    $scope.ngv_v = fuel.ngv_car.volume;
+  }
   $scope.ef_dsl_mch = 2.7076;
-  $scope.gsl_mch = 10;
-  $scope.gsl_v = 100;
   $scope.ef_gsl_mch = 2.1892;
-  $scope.dsl_car = 10;
-  $scope.dslc_v = 100;
   $scope.ef_dsl_car = 2.7403;
-  $scope.gsl_car = 10;
-  $scope.gslc_v = 100;
   $scope.ef_gsl_car = 2.2373;
-  $scope.lpg_car = 10;
-  $scope.lpg_v = 100;
   $scope.ef_lpg_car = 3.1988;
-  $scope.ngv_car  = 10;
-  $scope.ngv_v = 100;
   $scope.ef_ngv_car = 2.2540;
 
   // ปริมาณการใช้ LPG (ก๊าซหุงต้ม : ปรุงอาหาร) 
-  $scope.lpg_size4 = 10;
+  var LPG = JSON.parse(localStorage.getItem('lpg_cst'));
+  if(LPG){
+    $scope.lpg_size4 = LPG.lpg_size4.lpg_size4;
+    $scope.lpg_size7 = LPG.lpg_size7.lpg_size7;
+    $scope.lpg_size11 = LPG.lpg_size11.lpg_size11;
+    $scope.lpg_size13 = LPG.lpg_size13.lpg_size13;
+    $scope.lpg_size15 = LPG.lpg_size15.lpg_size15;
+    $scope.lpg_size48 = LPG.lpg_size48.lpg_size48;
+  }
   $scope.ef_lpg_size4 = 3.1133;
-  $scope.lpg_size7 = 10;
   $scope.ef_lpg_size7 = 3.1133;
-  $scope.lpg_size11 = 10;
   $scope.ef_lpg_size11 = 3.1133;
-  $scope.lpg_size13 = 10;
   $scope.ef_lpg_size13 = 3.1133;
-  $scope.lpg_size15 = 10;
   $scope.ef_lpg_size15 = 3.1133;
-  $scope.lpg_size48 = 10;
   $scope.ef_lpg_size48 = 3.1133;
 
   // ปริมาณที่เติมสารดับเพลิง, ปริมาณที่เติมสารทำความเย็น ในเครื่องปรับอากาศ  
-  $scope.egs_age = 100;
+  var egs_air_ftz = JSON.parse(localStorage.getItem('egs_air_ftz_cst'));
+  if(egs_air_ftz){
+    $scope.egs_age = egs_air_ftz.egs_age.egs_age;
+    $scope.r134a = egs_air_ftz.r134a.r134a;
+    $scope.r32 = egs_air_ftz.r32.r32;
+    $scope.r410a = egs_air_ftz.r410a.r410a;
+    $scope.r22 = egs_air_ftz.r22.r22;
+    $scope.ogn_ftz = egs_air_ftz.ogn_ftz.ogn_ftz;
+    $scope.fml_ftz46 = egs_air_ftz.fml_ftz46.fml_ftz46;
+    $scope.fml_ftz15 = egs_air_ftz.fml_ftz15.fml_ftz15;
+    $scope.fml_ftz13 = egs_air_ftz.fml_ftz13.fml_ftz13;
+    $scope.fml_ftz16 = egs_air_ftz.fml_ftz16.fml_ftz16;
+    $scope.ftz16 = egs_air_ftz.ftz16.ftz16;
+    $scope.ftz8 = egs_air_ftz.ftz8.ftz8;
+    $scope.inctc_g28 = egs_air_ftz.inctc_g28.inctc_g28;
+  }
   $scope.ef_egs_age = 1;
-  $scope.r134a = 100;
   $scope.ef_r134a = 1300;
-  $scope.r32 = 100;
   $scope.ef_r32 = 677;
-  $scope.r410a = 100;
   $scope.ef_r410a = 2087.5;
-  $scope.r22 = 100;
   $scope.ef_r22 = 1760;
-
-  $scope.ogn_ftz = 100;
   $scope.ef_ogn_ftz = 0.1097;
-  $scope.fml_ftz46 = 100;
   $scope.ef_fml_ftz46 = 3.3036;
-  $scope.fml_ftz15 = 100;
   $scope.ef_fml_ftz15 = 1.5083;
-  $scope.fml_ftz13 = 100;
   $scope.ef_fml_ftz13 = 1.347;
-  $scope.fml_ftz16 = 100;
   $scope.ef_fml_ftz16 = 1.5922;
-  $scope.ftz16 = 100;
   $scope.ef_ftz16 = 1.6089;
-  $scope.ftz8 = 100;
   $scope.ef_ftz8 = 1.1355;
-  $scope.inctc_g28 = 100;
   $scope.ef_inctc_g28 = 14.1;
 
   // ส้วม, septic tanks 
-  $scope.num_psn = 100;
-  $scope.wk_day = 300;
+  var septicTanks = JSON.parse(localStorage.getItem('st_tanks_cst'));
+  if(septicTanks){
+    $scope.num_psn = septicTanks.septic_tanks.num_psn;
+    $scope.wk_day = septicTanks.septic_tanks.wk_day;
+    $scope.num_school = septicTanks.septic_tanks.num_school;
+    $scope.day_school = septicTanks.septic_tanks.day_school;  
+  }
   $scope.ef_STanks = 0.0033;
-  $scope.num_school = 100;
-  $scope.day_school = 300;
 
   // ปริมาณการใช้พลังงานไฟฟ้า
-  $scope.eng_pay = 100;
+  var energy = JSON.parse(localStorage.getItem('eng_cst'));
+  if(energy){
+    $scope.eng_pay = energy.eng_pay.eng_pay;
+    $scope.eng_free = energy.eng_free.eng_free;  
+  }
   $scope.ef_eng_pay = 0.4999;
-  $scope.eng_free = 100;
   $scope.ef_eng_free = 0.4999;
 
   // ปริมาณการใช้น้ำประปา & ปริมาณการใช้สารเคมี ในการผลิตน้ำประปา
-  $scope.pwa = 100;
+  var water = JSON.parse(localStorage.getItem('water_cst'));
+  if(water){
+    $scope.pwa  = water.pwa.pwa;
+    $scope.mwa  = water.mwa.mwa;
+    $scope.alum  = water.alum.alum;
+    $scope.chlorine  = water.chlorine.chlorine;
+    $scope.lime = water.lime.lime;
+  }
   $scope.ef_pwa = 0.2843;
-  $scope.mwa = 100;
   $scope.ef_mwa = 0.7948;
-  $scope.alum = 100;
   $scope.ef_alum = 0.5311;
-  $scope.chlorine = 100;
   $scope.ef_chlorine = 1.0548;
-  $scope.lime = 100;
   $scope.ef_lime = 0.7759;
 
   // ปริมาณการใช้วัสดุสำนักงานและวัสดุสิ้นเปลือง
-  $scope.paper80 = 100;
+  var paper = JSON.parse(localStorage.getItem('paper_cst'));
+  if(paper){
+    $scope.paper80 = paper.paper80.paper80; 
+    $scope.paper70 = paper.paper70.paper70;   
+  }
   $scope.ef_paper80 = 2.0859;
-  $scope.paper70 = 100;
   $scope.ef_paper70 = 2.0859;
 
   // คำนวณปล่อยGHG_เฉพาะน้ำเสีย  
-  $scope.art_pond = 100;
-  $scope.art_bod = 100;
+  var waste = JSON.parse(localStorage.getItem('wst_cst'));
+  if(waste){
+    $scope.art_pond = waste.art_pond.art_pond;
+    $scope.art_bod = waste.art_pond.art_bod;
+    $scope.bpd = waste.bpd.bpd;
+    $scope.bpd_bod = waste.bpd.bpd_bod;
+    $scope.res_pub = waste.res_pub.res_pub; 
+  }
   $scope.ef_art_pond = 0;
-  $scope.bpd = 100;
-  $scope.bpd_bod = 100;
-  $scope.ef_bpd = 0.0033;
-  $scope.res_pub = 100;
+  $scope.ef_bpd = 0.0033;  
   $scope.bod_res_pub = 110; //set
   $scope.gwp_res_pub = 28; //set
 
   // ประเภทที่ 1 ปริมาณขยะ (ดำเนินการเอง)
-  $scope.dmp_t1 = 1000;
+  var garbage1 =  JSON.parse(localStorage.getItem('garbageT1_cst'));
+  if(garbage1){
+    $scope.dmp_t1 = garbage1.dmp_t1.dmp_t1;
+    $scope.landfill_t1 = garbage1.landfill_t1.landfill_t1;
+    $scope.brn_bk_t1 =  garbage1.brn_bk_t1.brn_bk_t1;
+  }
   $scope.ef_dmp_t1 = 1.0388;
-  $scope.landfill_t1 = 1000;
   $scope.ef_landfill_t1 = 0.7933;
-  $scope.brn_bk_t1 = 1000;
 
-  $scope.dmp_t3 = 1000;
+  // ประเภทที่ 3 ปริมาณขยะ
+  var garbage3 = JSON.parse(localStorage.getItem('garbageT3_cst'));
+  if(garbage3){
+    $scope.dmp_t3 = garbage3.dmp_t3.dmp_t3;
+    $scope.landfill_t3 = garbage3.landfill_t3.landfill_t3;
+    $scope.brn_bk_t3 =  garbage3.brn_bk_t3.brn_bk_t3;
+  }
   $scope.ef_dmp_t3 = 1.0388;
-  $scope.landfill_t3 = 1000;
   $scope.ef_landfill_t3 = 0.7933;
-  $scope.brn_bk_t3 = 1000;
+
 
   // คำนวณการดูดกลับ ก๊าซเรือนกระจก
-  $scope.tree = 10;
-  $scope.tree_h = 4;
-  $scope.tree_ccfr = 5;
-  $scope.mgr_frs = 10;
-  $scope.mgr_frs_h = 10;
-  $scope.mgr_frs_ccfr = 11;
-  $scope.palm = 10;
-  $scope.palm_h = 3;
-  $scope.palm_ccfr = 4;
-  $scope.vine = 10;
-  $scope.vine_h = 15;
-  $scope.vine_ccfr = 10;
+  var tree = JSON.parse(localStorage.getItem('tree_cst'));
+  if(tree){
+    $scope.tree = tree.tree.tree; 
+    $scope.tree_h = tree.tree.h; 
+    $scope.tree_ccfr = tree.tree.ccfr; 
+    $scope.mgr_frs = tree.mgr_frs.mgr_frs; 
+    $scope.mgr_frs_h = tree.mgr_frs.h; 
+    $scope.mgr_frs_ccfr = tree.mgr_frs.ccfr; 
+    $scope.palm = tree.palm.palm; 
+    $scope.palm_h = tree.palm.h; 
+    $scope.palm_ccfr = tree.palm.ccfr; 
+    $scope.vine = tree.vine.vine; 
+    $scope.vine_h = tree.vine.h; 
+    $scope.vine_ccfr = tree.vine.ccfr; 
+  }
+
+  function formEmpty(){
+    // ปริมาณการใช้น้ำมันเชื้อเพลิง
+    if($scope.dsl_mch == undefined){ $scope.dsl_mch = 0; }
+    if($scope.dsl_v == undefined){ $scope.dsl_v = 0; }
+    if($scope.gsl_mch == undefined){ $scope.gsl_mch = 0; }
+    if($scope.gsl_v == undefined){ $scope.gsl_v = 0; }
+    if($scope.dsl_car == undefined){ $scope.dsl_car = 0; }
+    if($scope.dslc_v == undefined){ $scope.dslc_v = 0; }
+    if($scope.gsl_car == undefined){ $scope.gsl_car = 0; }
+    if($scope.gslc_v == undefined){ $scope.gslc_v = 0; }
+    if($scope.lpg_car == undefined){ $scope.lpg_car = 0; }
+    if($scope.lpg_v == undefined){ $scope.lpg_v = 0; }
+    if($scope.ngv_car == undefined){ $scope.ngv_car = 0; }
+    if($scope.ngv_v == undefined){ $scope.ngv_v = 0; }
+    // ปริมาณการใช้ LPG (ก๊าซหุงต้ม : ปรุงอาหาร) 
+    if($scope.lpg_size4 == undefined){ $scope.lpg_size4 = 0; }
+    if($scope.lpg_size7 == undefined){ $scope.lpg_size7 = 0; }
+    if($scope.lpg_size11 == undefined){ $scope.lpg_size11 = 0; }
+    if($scope.lpg_size13 == undefined){ $scope.lpg_size13 = 0; }
+    if($scope.lpg_size15 == undefined){ $scope.lpg_size15 = 0; }
+    if($scope.lpg_size48 == undefined){ $scope.lpg_size48 = 0; }
+    // ปริมาณที่เติมสารดับเพลิง, ปริมาณที่เติมสารทำความเย็น ในเครื่องปรับอากาศ 
+    if($scope.egs_age == undefined){ $scope.egs_age = 0;}
+    if($scope.r134a == undefined){ $scope.r134a = 0;}
+    if($scope.r32 == undefined){ $scope.r32 = 0;}
+    if($scope.r410a == undefined){ $scope.r410a = 0;}
+    if($scope.r22 == undefined){ $scope.r22 = 0;}
+    if($scope.ogn_ftz  == undefined){ $scope.ogn_ftz = 0; }
+    if($scope.fml_ftz46  == undefined){ $scope.fml_ftz46 = 0; }
+    if($scope.fml_ftz15  == undefined){ $scope.fml_ftz15 = 0; }
+    if($scope.fml_ftz13  == undefined){ $scope.fml_ftz13 = 0; }
+    if($scope.fml_ftz16  == undefined){ $scope.fml_ftz16 = 0; }
+    if($scope.ftz16  == undefined){ $scope.ftz16 = 0; }
+    if($scope.ftz8  == undefined){ $scope.ftz8 = 0; }
+    if($scope.inctc_g28  == undefined){ $scope.inctc_g28 = 0; }
+    // ส้วม, septic tanks 
+    if($scope.num_psn == undefined){ $scope.num_psn = 0; }
+    if($scope.wk_day == undefined){ $scope.wk_day = 0; }
+    if($scope.num_school == undefined){ $scope.num_school = 0; }
+    if($scope.day_school == undefined){ $scope.day_school = 0; }
+    // คำนวณปล่อยGHG_เฉพาะน้ำเสีย
+    if($scope.art_pond == undefined){ $scope.art_pond = 0; }
+    if($scope.art_bod == undefined){ $scope.art_bod = 0; }
+    if($scope.bpd == undefined){ $scope.bpd = 0; }
+    if($scope.bpd_bod == undefined){ $scope.bpd_bod = 0; }
+    if($scope.res_pub == undefined){ $scope.res_pub = 0; }
+    // ประเภทที่ 1 ปริมาณขยะ (ดำเนินการเอง)
+    if($scope.dmp_t1 == undefined){ $scope.dmp_t1 = 0;}
+    if($scope.landfill_t1 == undefined){ $scope.landfill_t1 = 0;}
+    if($scope.brn_bk_t1 == undefined){ $scope.brn_bk_t1 = 0;}
+    // ประเภทที่ 3 ปริมาณขยะ 
+    if($scope.dmp_t3 == undefined){ $scope.dmp_t3 = 0;}
+    if($scope.landfill_t3 == undefined){ $scope.landfill_t3 = 0;}
+    if($scope.brn_bk_t3 == undefined){ $scope.brn_bk_t3 = 0;}
+    // ปริมาณการใช้พลังงานไฟฟ้า
+    if($scope.eng_pay == undefined){ $scope.eng_pay = 0; }
+    if($scope.eng_free == undefined){ $scope.eng_free = 0; }
+    // ปริมาณการใช้น้ำประปา & ปริมาณการใช้สารเคมี ในการผลิตน้ำประปา
+    if($scope.pwa  == undefined){ $scope.pwa = 0; }
+    if($scope.mwa  == undefined){ $scope.mwa = 0; }
+    if($scope.alum  == undefined){ $scope.alum = 0; }
+    if($scope.chlorine  == undefined){ $scope.chlorine = 0; }
+    if($scope.lime == undefined){ $scope.lime = 0; }
+    // ปริมาณการใช้วัสดุสำนักงานและวัสดุสิ้นเปลือง
+    if($scope.paper80 == undefined){ $scope.paper80 = 0;}
+    if($scope.paper70 == undefined){ $scope.paper70 = 0;}
+    // คำนวณการดูดกลับ ก๊าซเรือนกระจก
+    if($scope.tree  == undefined){ $scope.tree = 0;}
+    if($scope.tree_h  == undefined){ $scope.tree_h = 0;}
+    if($scope.tree_ccfr  == undefined){ $scope.tree_ccfr = 0;}
+    if($scope.mgr_frs  == undefined){ $scope.mgr_frs = 0;}
+    if($scope.mgr_frs_h  == undefined){ $scope.mgr_frs_h = 0;}
+    if($scope.mgr_frs_ccfr  == undefined){ $scope.mgr_frs_ccfr = 0;}
+    if($scope.palm  == undefined){ $scope.palm = 0;}
+    if($scope.palm_h  == undefined){ $scope.palm_h = 0;}
+    if($scope.palm_ccfr  == undefined){ $scope.palm_ccfr = 0;}
+    if($scope.vine  == undefined){ $scope.vine = 0;}
+    if($scope.vine_h  == undefined){ $scope.vine_h = 0;}
+    if($scope.vine_ccfr  == undefined){ $scope.vine_ccfr = 0;}
+  }
 
  
 
@@ -141,17 +256,19 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
   var cityType = gov.cityType;
 
   $scope.submit = function(){
+    formEmpty();
     formGHG(); //GHG
     formWastewater(); //GHG Wastewater
     formgarbage(); //GHG Garbage
     formTree(); //GHG Tree
     $window.location.href = '#/cfo-result';
+
   };
 
   function formGHG(){
     var fuel_cst = {
       dsl_mch:{ dsl_mch:$scope.dsl_mch, volume:$scope.dsl_v, sum:($scope.dsl_mch * $scope.dsl_v),EF:$scope.ef_dsl_mch, ghg_kg_co:(($scope.dsl_mch * $scope.dsl_v)*$scope.ef_dsl_mch),ghg_t_co:parseFloat(((($scope.dsl_mch * $scope.dsl_v)*$scope.ef_dsl_mch)/1000).toFixed(2))},
-      gsl_mch:{ dsl_mch:$scope.gsl_mch, volume:$scope.gsl_v, sum:($scope.gsl_mch * $scope.gsl_v),EF:$scope.ef_gsl_mch, ghg_kg_co:(($scope.gsl_mch * $scope.gsl_v)*$scope.ef_gsl_mch),ghg_t_co:parseFloat(((($scope.gsl_mch * $scope.gsl_v)*$scope.ef_gsl_mch)/1000).toFixed(2))},
+      gsl_mch:{ gsl_mch:$scope.gsl_mch, volume:$scope.gsl_v, sum:($scope.gsl_mch * $scope.gsl_v),EF:$scope.ef_gsl_mch, ghg_kg_co:(($scope.gsl_mch * $scope.gsl_v)*$scope.ef_gsl_mch),ghg_t_co:parseFloat(((($scope.gsl_mch * $scope.gsl_v)*$scope.ef_gsl_mch)/1000).toFixed(2))},
       dsl_car:{ dsl_car:$scope.dsl_car, volume:$scope.dslc_v, sum:($scope.dsl_car * $scope.dslc_v),EF:$scope.ef_dsl_car, ghg_kg_co:(($scope.dsl_car * $scope.dslc_v)*$scope.ef_dsl_car),ghg_t_co:parseFloat(((($scope.dsl_car * $scope.dslc_v)*$scope.ef_dsl_car)/1000).toFixed(2))},
       gsl_car:{ gsl_car:$scope.gsl_car, volume:$scope.gslc_v, sum:($scope.gsl_car * $scope.gslc_v),EF:$scope.ef_gsl_car, ghg_kg_co:(($scope.gsl_car * $scope.gslc_v)*$scope.ef_gsl_car),ghg_t_co:parseFloat(((($scope.gsl_car * $scope.gslc_v)*$scope.ef_gsl_car)/1000).toFixed(2))},
       lpg_car:{ lpg_car:$scope.lpg_car, volume:$scope.lpg_v, sum:($scope.lpg_car * $scope.lpg_v),EF:$scope.ef_lpg_car, ghg_kg_co:(($scope.lpg_car * $scope.lpg_v)*$scope.ef_lpg_car),ghg_t_co:parseFloat(((($scope.lpg_car * $scope.lpg_v)*$scope.ef_lpg_car)/1000).toFixed(2))},
@@ -190,7 +307,14 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     localStorage.setItem('egs_air_ftz_cst', JSON.stringify(egs_air_ftz_cst));
     // console.log("egs_air_ftz_cst:",egs_air_ftz_cst);
     var st_tanks_cst  = {
-      septic_tanks:{ num_psn:$scope.num_psn,wk_day:$scope.wk_day,EF:$scope.ef_STanks, ghg_kg_co:($scope.num_psn*$scope.wk_day)*$scope.ef_STanks,ghg_t_co:parseFloat((($scope.num_psn*$scope.wk_day)*$scope.ef_STanks/1000).toFixed(2))},
+      septic_tanks:{ 
+        num_psn:$scope.num_psn,
+        wk_day:$scope.wk_day,EF:$scope.ef_STanks, 
+        ghg_kg_co:($scope.num_psn*$scope.wk_day)*$scope.ef_STanks,
+        ghg_t_co:parseFloat((($scope.num_psn*$scope.wk_day)*$scope.ef_STanks/1000).toFixed(2)),
+        num_school:$scope.num_school,
+        day_school:$scope.day_school
+      },
     };
     st_tanks_cst.total = st_tanks_cst.septic_tanks.ghg_t_co;
     localStorage.setItem('st_tanks_cst', JSON.stringify(st_tanks_cst));
@@ -226,7 +350,16 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     var wst_cst  = {
         art_pond:{ art_pond:$scope.art_pond,art_bod:$scope.art_bod,EF:$scope.ef_art_pond, ghg_kg_co:($scope.art_pond*$scope.art_bod)*$scope.ef_art_pond,ghg_t_co:parseFloat((($scope.art_pond*$scope.art_bod)*$scope.ef_art_pond/1000).toFixed(2))},
         bpd:{ bpd:$scope.bpd,bpd_bod:$scope.bpd_bod,EF:$scope.ef_bpd, ghg_kg_co:($scope.bpd*$scope.bpd_bod)*$scope.ef_bpd,ghg_t_co:parseFloat((($scope.bpd*$scope.bpd_bod)*$scope.ef_bpd/1000).toFixed(2))},
-        res_pub:{res_pub:$scope.res_pub,waste:($scope.res_pub*0.8),bod_res_pub:$scope.bod_res_pub,s:0,methane:methane,wp_res_pub:$scope.gwp_res_pub,ghg_kg_co:methane * $scope.gwp_res_pub,ghg_t_co:parseFloat(( methane *$scope.gwp_res_pub/1000).toFixed(2))}
+        res_pub:{
+          res_pub:$scope.res_pub,
+          waste:($scope.res_pub*0.8),
+          bod_res_pub:$scope.bod_res_pub,
+          s:0,
+          methane:methane,
+          gwp_res_pub:$scope.gwp_res_pub,
+          ghg_kg_co:methane * $scope.gwp_res_pub,
+          ghg_t_co:parseFloat(( methane *$scope.gwp_res_pub/1000).toFixed(2))
+        }
     };
     wst_cst.total = (wst_cst.art_pond.ghg_t_co + wst_cst.bpd.ghg_t_co) + wst_cst.res_pub.ghg_t_co;
     localStorage.setItem('wst_cst', JSON.stringify(wst_cst));
@@ -370,23 +503,11 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
   var currentTab = 0; // Current tab is set to be the first tab (0)
   showTab(currentTab); 
   $scope.nextPrev = function(n)  {
-      // console.log(n);
-      // This function will figure out which tab to display
       var x = document.getElementsByClassName("tab");
-      // Exit the function if any field in the current tab is invalid:
-      // if (n == 1 && !validateForm()) return false;
-      // Hide the current tab:
       x[currentTab].style.display = "none";
-      // Increase or decrease the current tab by 1:
       currentTab = currentTab + n;
-      // console.log("currentTab:",currentTab);
-      // if you have reached the end of the form...
       if (currentTab >= x.length) {
-        // ... the form gets submitted:
-        // document.getElementById("regForm").submit();
-        // return false;
       }
-      // Otherwise, display the correct tab:
       showTab(currentTab);
   };
     

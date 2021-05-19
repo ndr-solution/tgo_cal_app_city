@@ -42,4 +42,5 @@
     <plugin name="cordova-pdf-generator" spec="^2.0.8" />
     <plugin name="cordova-plugin-email" spec="^1.2.7" />
     <engine name="android" spec="^7.1.4" />
+	<preference name="Orientation" value="portrait" />
 </widget>

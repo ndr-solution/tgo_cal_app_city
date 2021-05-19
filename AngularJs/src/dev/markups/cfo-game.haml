@@ -34,9 +34,10 @@
             .container-fluid
                 .container.text-center.p-2
                     .cfo-footer
-                        %a{:href=>"#/"}
-                            .btn.btn-lg.btn-footer ย้อนกลับ
-                        .btn.btn-lg.btn-footer คำนวณ
+                        .btn.btn-lg.btn-footer{'ng-click'=>"prevAns()",'ng-show'=>"answer.length !== 0 && answer.length !== 5"} ย้อนกลับ
+                        .btn.btn-lg.btn-footer{'ng-click'=>"reloadRoute()",'ng-show'=>"answer.length == 5"} เริ่มเล่นใหม่
+                        %a{:href=>"#/cfo-form-gov"}
+                            .btn.btn-lg.btn-footer คำนวณ
     
         -# Modal Game info
         #cfoGameModal.modal.fade{:tabindex=>"-1", :role=>"dialog", :aria-labelledby=>"cfoGameModalLabel", :aria-hidden=>"true"}
@@ -44,7 +45,7 @@
                 .modal-content.modal-home
                     .modal-header.cfo-modal-header
                         .modal-title
-                            %h2 
+                            %h2.mt-2 
                                 %span 
                                     %img{:src=>"img/cfo_info_game.svg", :width=>"24"}
                                     รายละเอียดประเภทที่ {{ infoType }}
@@ -63,7 +64,7 @@
                 .modal-content.modal-home{'ng-show'=>"!answerInfoDisplay"}
                     .modal-header.cfo-modal-header.text-center
                         .modal-title
-                            %h2 ยินดีด้วยคุณได้คะแนน
+                            %h2.mt-2 ยินดีด้วยคุณได้คะแนน
                     .modal-body
                         .container
                             .row
@@ -76,8 +77,9 @@
                                 .col-12.text-center
                                     %h1 {{ totalScore }} / 5     
                     .modal-footer.cfo-modal-footer.text-center
-                        %a{:href=>"#/"}
-                            .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
+                        -# %a{:href=>"#/"}
+                        -#     .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
+                        .btn.btn-lg.btn-inModal.bd-radius-25{'ng-click'=>"reloadRoute()"} เริ่มเล่นใหม่
                         %a{:href=>"#/cfo-form-gov"}
                             .btn.btn-lg.btn-inModal.bd-radius-25 คำนวณ
 
@@ -100,8 +102,9 @@
                                     %td
                                         {{ item.answer }} 
                     .modal-footer.cfo-modal-footer.text-center
-                        %a{:href=>"#/"}
-                            .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
+                        -# %a{:href=>"#/"}
+                        -#     .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
+                        .btn.btn-lg.btn-inModal.bd-radius-25{'ng-click'=>"reloadRoute()"} เริ่มเล่นใหม่
                         %a{:href=>"#/cfo-form-gov"}
                             .btn.btn-lg.btn-inModal.bd-radius-25 คำนวณ
 

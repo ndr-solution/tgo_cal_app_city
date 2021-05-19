@@ -61,13 +61,14 @@ app.config(function($routeProvider,$locationProvider,$compileProvider){
     $locationProvider.hashPrefix('');
 
 });
-app.controller('homeInit',function(connect_api){ var coff_server = connect_api.getcoff(); });
+// app.controller('homeInit',function(connect_api){ var coff_server = connect_api.getcoff(); });
+app.controller('homeInit',function(){});
 app.controller('questionInit',function(){});
 app.controller('formInit',function(){});
 app.controller('resultInit',function(){});
 app.controller('recommendInit',function(){});
 
-app.controller('cfoHomeInit',function(){});
+app.controller('cfoHomeInit',function(connect_api){ var coff_server = connect_api.getcoff(); });
 app.controller('cfoGameInit',function(){});
 app.controller('cfoFormGovInit',function(){});
 app.controller('cfoFormInit',function(){});

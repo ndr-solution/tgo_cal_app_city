@@ -13,7 +13,7 @@ app.factory("dataPDF",function(convertText,$filter,equalOfTrees,showrecommend){
                 <div class="row">
                     <div class="col-6">
                         <center>
-                            <img class="logo" src="www/img/header-${ citytype }.svg">
+                            <img class="logo" src="file:///android_asset/www/img/header-${ citytype }.svg">
                         </center>
                     </div>
                     <div class="col-6 header-left">
@@ -54,7 +54,7 @@ app.factory("dataPDF",function(convertText,$filter,equalOfTrees,showrecommend){
                             </div>
                             <div class="col-12 mt-5">
                                 <div class="frame-img">
-                                    <img src="www/img/${ AnalysisResults.res_ratings.grade }.png" class="img-fluid">
+                                    <img src="file:///android_asset/www/img/${ AnalysisResults.res_ratings.grade }.png" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -389,7 +389,7 @@ app.factory("setTemplatePDF",function(dataPDF){
                     checkPage =`
                         <div class="pageA4">
                             <div class="header-pdf">
-                                <img src="www/img/header-pdf.png" width="1124">
+                                <img src="file:///android_asset/www/img/header-pdf.png" width="1124">
                             </div>
                             <div class="container-fluid mt-5">
                                 ${ dataPDF.getRecomHeader(page,citytype) }
@@ -401,7 +401,7 @@ app.factory("setTemplatePDF",function(dataPDF){
                                 </div>
                             </div>
                             <div class="footer-pdf">
-                                <img src="www/img/footer-pdf.png" width="480">
+                                <img src="file:///android_asset/www/img/footer-pdf.png" width="480">
                             </div>
                         </div>`;
                 }   
@@ -411,14 +411,14 @@ app.factory("setTemplatePDF",function(dataPDF){
                             checkPage =`
                                 <div class="pageA4">
                                     <div class="header-pdf">
-                                        <img src="www/img/header-pdf.png" width="1124">
+                                        <img src="file:///android_asset/www/img/header-pdf.png" width="1124">
                                     </div>
                                     <div class="container-fluid mt-5">
                                         ${ dataPDF.getRecomHeader(page,citytype) }
                                         ${ dataPDF.getPageResult(citytype) }
                                     </div>
                                     <div class="footer-pdf">
-                                        <img src="www/img/footer-pdf.png" width="480">
+                                        <img src="file:///android_asset/www/img/footer-pdf.png" width="480">
                                     </div>
                                 </div>`;
                         }else{
@@ -426,19 +426,19 @@ app.factory("setTemplatePDF",function(dataPDF){
                             checkPage =`
                                 <div class="pageA4">
                                     <div class="header-pdf">
-                                        <img src="www/img/header-pdf.png" width="1124">                                                                                                                                                                                                                                                                      
+                                        <img src="file:///android_asset/www/img/header-pdf.png" width="1124">                                                                                                                                                                                                                                                                      
                                     </div>
                                     <div class="container-fluid mt-5">
                                         ${ dataPDF.getRecomHeader(page,citytype) }
                                         ${ dataPDF.getPageRecom(citytype) }
                                     </div>
                                     <div class="footer-pdf">
-                                        <img src="www/img/footer-pdf.png" width="480">
+                                        <img src="file:///android_asset/www/img/footer-pdf.png" width="480">
                                     </div>
                                 </div>    
                                 <div class="pageA4">
                                     <div class="header-pdf">
-                                        <img src="www/img/header-pdf.png" width="1124">
+                                        <img src="file:///android_asset/www/img/header-pdf.png" width="1124">
                                     </div>
                                     <div class="container-fluid mt-5">
                                         ${ dataPDF.getPageResult(citytype) }
@@ -449,7 +449,7 @@ app.factory("setTemplatePDF",function(dataPDF){
                                         </div>
                                     </div>
                                     <div class="footer-pdf">
-                                        <img src="www/img/footer-pdf.png" width="480">
+                                        <img src="file:///android_asset/www/img/footer-pdf.png" width="480">
                                     </div>
                                 </div>`;
                         }
@@ -462,31 +462,31 @@ app.factory("setTemplatePDF",function(dataPDF){
                 <head>
                     <meta charset="utf-8">
                     <title>รายงานผลการวิเคราะห์</title>
-                    <link rel="stylesheet" href="www/css/bootstrap.css">
-                    <link rel="stylesheet" href="www/css/pdf_ios.css">
+                    <link rel="stylesheet" href="file:///android_asset/www/css/bootstrap.css">
+                    <link rel="stylesheet" href="file:///android_asset/www/css/pdf_android.css">
                 </head>
                 <boby>
                 
                     <div class="pageA4">
                         <div class="header-pdf">
-                            <img src="www/img/header-pdf.png" width="1124">
+                            <img src="file:///android_asset/www/img/header-pdf.png" width="1124">
                         </div>
                         <div class="container-fluid mt-5">
                             ${ dataPDF.getInputUser(page,citytype) }
                         </div>
                         <div class="footer-pdf">
-                            <img src="www/img/footer-pdf.png" width="480">
+                            <img src="file:///android_asset/www/img/footer-pdf.png" width="480">
                         </div>
                     </div>
                     <div class="pageA4">
                         <div class="header-pdf">
-                            <img src="www/img/header-pdf.png" width="1124">
+                            <img src="file:///android_asset/www/img/header-pdf.png" width="1124">
                         </div>
                         <div class="container-fluid mt-5">
                             ${ dataPDF.getAnalysisResults(page,citytype) }
                         </div>
                         <div class="footer-pdf">
-                            <img src="www/img/footer-pdf.png" width="480">
+                            <img src="file:///android_asset/www/img/footer-pdf.png" width="480">
                         </div>
                     </div>
                     ${ selectPage(page,citytype) }
