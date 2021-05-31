@@ -35,9 +35,11 @@
                 .container.text-center.p-2
                     .cfo-footer
                         .btn.btn-lg.btn-footer{'ng-click'=>"prevAns()",'ng-show'=>"answer.length !== 0 && answer.length !== 5"} ย้อนกลับ
-                        .btn.btn-lg.btn-footer{'ng-click'=>"reloadRoute()",'ng-show'=>"answer.length == 5"} เริ่มเล่นใหม่
-                        %a{:href=>"#/cfo-form-gov"}
-                            .btn.btn-lg.btn-footer คำนวณ
+                        -# .btn.btn-lg.btn-footer{'ng-click'=>"reloadRoute()",'ng-show'=>"answer.length == 5"} เริ่มเล่นใหม่
+                        %a{:href=>"#/",'ng-show'=>"answer.length == 5"}
+                            .btn.btn-lg.btn-footer กลับหน้าหลัก
+                        %a{:href=>"#/cfo-form-gov",'ng-class'=>" answer.length !== 5 ? 'disabled' : ''"}
+                            .btn.btn-lg.btn-footer{'ng-class'=>" answer.length !== 5 ? 'disabled' : ''"} คำนวณ
     
         -# Modal Game info
         #cfoGameModal.modal.fade{:tabindex=>"-1", :role=>"dialog", :aria-labelledby=>"cfoGameModalLabel", :aria-hidden=>"true"}
@@ -52,10 +54,8 @@
                     .modal-body.text-center
                         %h3{'ng-bind-html'=>"infoContent"}
                     .modal-footer.cfo-modal-footer.text-center
-                        %a{:href=>"#/"}
-                            .btn.btn-lg.btn-inModal.bd-radius-25 ย้อนกลับ
-                        %a{:href=>"#/cfo-form-gov"}
-                            .btn.btn-lg.btn-inModal.bd-radius-25 คำนวณ
+                        %br
+                        %br
 
 
         -# Modal totalScore
@@ -72,7 +72,8 @@
                                     %img.float-right{:src=>"img/cfo_icon_info_gray.svg", :width=>"32", 'ng-click'=>"answerInfo(true)"}
                             .row
                                 .col-12
-                                    %img.img-fluid.rounded.mx-auto.d-block{:src=>"img/cfo_total_score.png", :width=>"70%"}
+                                    -# %img.img-fluid.rounded.mx-auto.d-block{:src=>"img/cfo_total_score.png", :width=>"70%"}
+                                    %img.img-fluid.rounded.mx-auto.d-block{:src=>"img/g{{ totalScore }}.png", :width=>"70%"}
                             .row
                                 .col-12.text-center
                                     %h1 {{ totalScore }} / 5     

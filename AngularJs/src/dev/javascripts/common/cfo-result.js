@@ -2,21 +2,21 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window,cfoPDF){
     
     
     $scope.gov = JSON.parse(localStorage.getItem('formGov'));
-    console.log("$scope.gov:",$scope.gov);
+    // console.log("$scope.gov:",$scope.gov);
     nameCityType($scope.gov.cityType); 
     // special = ปกครองพิเศษ, state = นคร, city = เมือง, district = ตำบล
     function nameCityType(type){
         if(type == "special"){
-            $scope.cityType = "ปกครองพิเศษ";
-        }
-        if(type == "state"){
-            $scope.cityType = "นคร";
-        }
-        if(type == "city"){
             $scope.cityType = "เมือง";
         }
+        if(type == "state"){
+            $scope.cityType = "เทศบาลนคร";
+        }
+        if(type == "city"){
+            $scope.cityType = "เทศบาลเมือง";
+        }
         if(type == "district"){
-            $scope.cityType = "ตำบล";
+            $scope.cityType = "เทศบาลตำบล";
         }
     }
 
@@ -34,18 +34,9 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window,cfoPDF){
     $scope.ghg_tree = tree;
     $scope.ghg_tree_total = (tree.tree.ghg_t_co + tree.mgr_frs.ghg_t_co ) + (tree.palm.ghg_t_co + tree.vine.ghg_t_co ); 
     $scope.ghgTotal = (fuel.total + LPG.total) + (egs_air_ftz.total + septicTanks.total) + (energy.total + water.total) + (paper.total + waste.total) + (garbage1.total + garbage3.total) + tree.total;
-    // console.log("$scope.ghgTotal:",$scope.ghgTotal);
-    // console.log("paper:",fuel.total);
-    // console.log("LPG:",LPG.total);
-    // console.log("egs_air_ftz:",egs_air_ftz.total);
-    // console.log("septicTanks:",septicTanks.total);
-    // console.log("energy:",energy.total);
-    // console.log("water:",water.total);
-    // console.log("paper:",paper.total);
-    // console.log("waste:",waste.total);
-    // console.log("garbage1:",garbage1.total);
-    // console.log("garbage3:",garbage3.total);
-    // console.log("tree:",tree.total);
+
+    console.log("tree:",tree.total);
+    console.log("$scope.ghg_tree_total:",$scope.ghg_tree_total);
 
     var ghgType1 = (fuel.total + LPG.total) + (egs_air_ftz.total + septicTanks.total) + (garbage1.total) + (waste.total);
     var ghgType2 = (energy.total);
@@ -64,7 +55,9 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window,cfoPDF){
         },
         yAxis: {
             title: {
-                text: 'tCO2eq/ปี'
+                useHTML: true,
+                enabled: true,
+                text: '<b>tCO<sub>2</sub>eq/ปี</b>'
             }
 
         },
@@ -73,7 +66,8 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window,cfoPDF){
         },
         plotOptions: {
             series: {
-                borderWidth: 0,
+                // borderWidth: 0,
+                pointWidth: 40,
                 dataLabels: {
                     enabled: true,
                     format: '{point.y:.1f}'
@@ -89,7 +83,7 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window,cfoPDF){
        },
         series: [
             {
-                name: "Browsers",
+                name: "",
                 colorByPoint: true,
                 data: [
                     {
@@ -104,22 +98,18 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window,cfoPDF){
                         name: "ประเภทที่ 3",
                         y: ghgType3,
                     },
+                    {
+                        name: "อื่นๆ",
+                        y: tree.total,
+                    },
                 ]
             }
         ],
     });
 
 
-    $scope.createPDF = function(){
-        // function padx(c){return (c < 10) ? '0'+c.toString() : c.toString();}
-        // var d = new Date();
-        // var month = padx(d.getMonth()+1);
-        // var date = d.getFullYear()+month+padx(d.getDate());
-        // var time = padx(d.getHours())+padx(d.getMinutes())+padx(d.getSeconds());
-    
-    
+    $scope.createPDF = function(){  
         PDFhtml = cfoPDF.getPage();
-        console.log("PDFhtml:",PDFhtml);
         document.addEventListener("deviceready", onDeviceReady, false);
           function onDeviceReady() {
               let options = {
@@ -128,8 +118,8 @@ app.controller("cfoResult",function($scope,$rootScope,$location,$window,cfoPDF){
                         fileName: "cfo-test"
                       };
             pdf.fromData(PDFhtml, options).then(cordova.plugins.email.open()).catch((err)=>console.err(err));
-          }
-      };
+        }
+    };
 
 
 });

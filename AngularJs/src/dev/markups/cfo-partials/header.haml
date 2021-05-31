@@ -3,6 +3,7 @@
         .row
             .col-3.text-right
                 %a{:href=>"#/"}
-                    %span.material-icons.nav-icon-home home 
+                    %img{:src=>"img/cfo-icon-home.svg", 'ng-class'=>"classIcon"}
+                    -# %span.material-icons.nav-icon-home home 
             .col-7.text-center
-                .nav-tite{'ng-bind-html'=>"headerTitle"}
+                %h2{'ng-bind-html'=>"headerTitle",'ng-class'=>"headerclassTitle"}

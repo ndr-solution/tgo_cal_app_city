@@ -1,5 +1,7 @@
 app.controller("cfoForm",function($scope,$rootScope,$location,$window){
-
+  // get coff from local storage
+  var coff = JSON.parse(localStorage.getItem('cfo_coff'));
+  // console.log("coff:",coff);
   // ปริมาณการใช้น้ำมันเชื้อเพลิง
   var fuel = JSON.parse(localStorage.getItem('fuel_cst'));
   if(fuel){
@@ -16,12 +18,19 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.ngv_car  = fuel.ngv_car.ngv_car;
     $scope.ngv_v = fuel.ngv_car.volume;
   }
-  $scope.ef_dsl_mch = 2.7076;
-  $scope.ef_gsl_mch = 2.1892;
-  $scope.ef_dsl_car = 2.7403;
-  $scope.ef_gsl_car = 2.2373;
-  $scope.ef_lpg_car = 3.1988;
-  $scope.ef_ngv_car = 2.2540;
+  $scope.ef_dsl_mch = coff.fuel_cst.ef_dsl_mch;
+  $scope.ef_gsl_mch = coff.fuel_cst.ef_gsl_mch;
+  $scope.ef_dsl_car = coff.fuel_cst.ef_dsl_car;
+  $scope.ef_gsl_car = coff.fuel_cst.ef_gsl_car;
+  $scope.ef_lpg_car = coff.fuel_cst.ef_lpg_car;
+  $scope.ef_ngv_car = coff.fuel_cst.ef_ngv_car;
+
+  // $scope.ef_dsl_mch = 2.7076;
+  // $scope.ef_gsl_mch = 2.1892;
+  // $scope.ef_dsl_car = 2.7403;
+  // $scope.ef_gsl_car = 2.2373;
+  // $scope.ef_lpg_car = 3.1988;
+  // $scope.ef_ngv_car = 2.2540;
 
   // ปริมาณการใช้ LPG (ก๊าซหุงต้ม : ปรุงอาหาร) 
   var LPG = JSON.parse(localStorage.getItem('lpg_cst'));
@@ -33,12 +42,19 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.lpg_size15 = LPG.lpg_size15.lpg_size15;
     $scope.lpg_size48 = LPG.lpg_size48.lpg_size48;
   }
-  $scope.ef_lpg_size4 = 3.1133;
-  $scope.ef_lpg_size7 = 3.1133;
-  $scope.ef_lpg_size11 = 3.1133;
-  $scope.ef_lpg_size13 = 3.1133;
-  $scope.ef_lpg_size15 = 3.1133;
-  $scope.ef_lpg_size48 = 3.1133;
+  
+  $scope.ef_lpg_size4 = coff.lpg_cst.ef_lpg_size4;
+  $scope.ef_lpg_size7 = coff.lpg_cst.ef_lpg_size7;
+  $scope.ef_lpg_size11 = coff.lpg_cst.ef_lpg_size11;
+  $scope.ef_lpg_size13 = coff.lpg_cst.ef_lpg_size13;
+  $scope.ef_lpg_size15 = coff.lpg_cst.ef_lpg_size15;
+  $scope.ef_lpg_size48 = coff.lpg_cst.ef_lpg_size48;
+  // $scope.ef_lpg_size4 = 3.1133;
+  // $scope.ef_lpg_size7 = 3.1133;
+  // $scope.ef_lpg_size11 = 3.1133;
+  // $scope.ef_lpg_size13 = 3.1133;
+  // $scope.ef_lpg_size15 = 3.1133;
+  // $scope.ef_lpg_size48 = 3.1133;
 
   // ปริมาณที่เติมสารดับเพลิง, ปริมาณที่เติมสารทำความเย็น ในเครื่องปรับอากาศ  
   var egs_air_ftz = JSON.parse(localStorage.getItem('egs_air_ftz_cst'));
@@ -57,19 +73,33 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.ftz8 = egs_air_ftz.ftz8.ftz8;
     $scope.inctc_g28 = egs_air_ftz.inctc_g28.inctc_g28;
   }
-  $scope.ef_egs_age = 1;
-  $scope.ef_r134a = 1300;
-  $scope.ef_r32 = 677;
-  $scope.ef_r410a = 2087.5;
-  $scope.ef_r22 = 1760;
-  $scope.ef_ogn_ftz = 0.1097;
-  $scope.ef_fml_ftz46 = 3.3036;
-  $scope.ef_fml_ftz15 = 1.5083;
-  $scope.ef_fml_ftz13 = 1.347;
-  $scope.ef_fml_ftz16 = 1.5922;
-  $scope.ef_ftz16 = 1.6089;
-  $scope.ef_ftz8 = 1.1355;
-  $scope.ef_inctc_g28 = 14.1;
+  $scope.ef_egs_age = coff.egs_air_ftz_cst.ef_egs_age;
+  $scope.ef_r134a = coff.egs_air_ftz_cst.ef_r134a;
+  $scope.ef_r32 = coff.egs_air_ftz_cst.ef_r32;
+  $scope.ef_r410a = coff.egs_air_ftz_cst.ef_r410a;
+  $scope.ef_r22 = coff.egs_air_ftz_cst.ef_r22;
+  $scope.ef_ogn_ftz = coff.egs_air_ftz_cst.ef_ogn_ftz;
+  $scope.ef_fml_ftz46 = coff.egs_air_ftz_cst.ef_fml_ftz46;
+  $scope.ef_fml_ftz15 = coff.egs_air_ftz_cst.ef_fml_ftz15;
+  $scope.ef_fml_ftz13 = coff.egs_air_ftz_cst.ef_fml_ftz13;
+  $scope.ef_fml_ftz16 = coff.egs_air_ftz_cst.ef_fml_ftz16;
+  $scope.ef_ftz16 = coff.egs_air_ftz_cst.ef_ftz16;
+  $scope.ef_ftz8 = coff.egs_air_ftz_cst.ef_ftz8;
+  $scope.ef_inctc_g28 = coff.egs_air_ftz_cst.ef_inctc_g28;
+  // $scope.ef_egs_age = 1;
+  // $scope.ef_r134a = 1300;
+  // $scope.ef_r32 = 677;
+  // $scope.ef_r410a = 2087.5;
+  // $scope.ef_r22 = 1760;
+  // $scope.ef_ogn_ftz = 0.1097;
+  // $scope.ef_fml_ftz46 = 3.3036;
+  // $scope.ef_fml_ftz15 = 1.5083;
+  // $scope.ef_fml_ftz13 = 1.347;
+  // $scope.ef_fml_ftz16 = 1.5922;
+  // $scope.ef_ftz16 = 1.6089;
+  // $scope.ef_ftz8 = 1.1355;
+  // $scope.ef_inctc_g28 = 14.1;
+
 
   // ส้วม, septic tanks 
   var septicTanks = JSON.parse(localStorage.getItem('st_tanks_cst'));
@@ -79,7 +109,8 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.num_school = septicTanks.septic_tanks.num_school;
     $scope.day_school = septicTanks.septic_tanks.day_school;  
   }
-  $scope.ef_STanks = 0.0033;
+  $scope.ef_STanks = coff.st_tanks_cst.ef_STanks;
+  // $scope.ef_STanks = 0.0033;
 
   // ปริมาณการใช้พลังงานไฟฟ้า
   var energy = JSON.parse(localStorage.getItem('eng_cst'));
@@ -87,8 +118,10 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.eng_pay = energy.eng_pay.eng_pay;
     $scope.eng_free = energy.eng_free.eng_free;  
   }
-  $scope.ef_eng_pay = 0.4999;
-  $scope.ef_eng_free = 0.4999;
+  $scope.ef_eng_pay = coff.eng_cst.ef_eng_pay;
+  $scope.ef_eng_free = coff.eng_cst.ef_eng_free;
+  // $scope.ef_eng_pay = 0.4999;
+  // $scope.ef_eng_free = 0.4999;
 
   // ปริมาณการใช้น้ำประปา & ปริมาณการใช้สารเคมี ในการผลิตน้ำประปา
   var water = JSON.parse(localStorage.getItem('water_cst'));
@@ -99,20 +132,28 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.chlorine  = water.chlorine.chlorine;
     $scope.lime = water.lime.lime;
   }
-  $scope.ef_pwa = 0.2843;
-  $scope.ef_mwa = 0.7948;
-  $scope.ef_alum = 0.5311;
-  $scope.ef_chlorine = 1.0548;
-  $scope.ef_lime = 0.7759;
+  $scope.ef_pwa = coff.water_cst.ef_pwa;
+  $scope.ef_mwa = coff.water_cst.ef_mwa;
+  $scope.ef_alum = coff.water_cst.ef_alum;
+  $scope.ef_chlorine = coff.water_cst.ef_chlorine;
+  $scope.ef_lime = coff.water_cst.ef_lime;
+  // $scope.ef_pwa = 0.2843;
+  // $scope.ef_mwa = 0.7948;
+  // $scope.ef_alum = 0.5311;
+  // $scope.ef_chlorine = 1.0548;
+  // $scope.ef_lime = 0.7759;
 
   // ปริมาณการใช้วัสดุสำนักงานและวัสดุสิ้นเปลือง
   var paper = JSON.parse(localStorage.getItem('paper_cst'));
   if(paper){
     $scope.paper80 = paper.paper80.paper80; 
     $scope.paper70 = paper.paper70.paper70;   
+  
   }
-  $scope.ef_paper80 = 2.0859;
-  $scope.ef_paper70 = 2.0859;
+  $scope.ef_paper80 = coff.paper_cst.ef_paper80;
+  $scope.ef_paper70 =  coff.paper_cst.ef_paper70;
+  // $scope.ef_paper80 = 2.0859;
+  // $scope.ef_paper70 = 2.0859;
 
   // คำนวณปล่อยGHG_เฉพาะน้ำเสีย  
   var waste = JSON.parse(localStorage.getItem('wst_cst'));
@@ -123,10 +164,14 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.bpd_bod = waste.bpd.bpd_bod;
     $scope.res_pub = waste.res_pub.res_pub; 
   }
-  $scope.ef_art_pond = 0;
-  $scope.ef_bpd = 0.0033;  
-  $scope.bod_res_pub = 110; //set
-  $scope.gwp_res_pub = 28; //set
+  $scope.ef_art_pond = coff.wst_cst;
+  $scope.ef_bpd = coff.wst_cst.ef_bpd;
+  $scope.bod_res_pub =  coff.wst_cst.bod_res_pub;
+  $scope.gwp_res_pub = coff.wst_cst.gwp_res_pub;
+  // $scope.ef_art_pond = 0;
+  // $scope.ef_bpd = 0.0033;  
+  // $scope.bod_res_pub = 110; //set
+  // $scope.gwp_res_pub = 28; //set
 
   // ประเภทที่ 1 ปริมาณขยะ (ดำเนินการเอง)
   var garbage1 =  JSON.parse(localStorage.getItem('garbageT1_cst'));
@@ -135,8 +180,10 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.landfill_t1 = garbage1.landfill_t1.landfill_t1;
     $scope.brn_bk_t1 =  garbage1.brn_bk_t1.brn_bk_t1;
   }
-  $scope.ef_dmp_t1 = 1.0388;
-  $scope.ef_landfill_t1 = 0.7933;
+  $scope.ef_dmp_t1 = coff.garbageT1_cst.ef_dmp_t1;
+  $scope.ef_landfill_t1 = coff.garbageT1_cst.landfill_t1;
+  // $scope.ef_dmp_t1 = 1.0388;
+  // $scope.ef_landfill_t1 = 0.7933;
 
   // ประเภทที่ 3 ปริมาณขยะ
   var garbage3 = JSON.parse(localStorage.getItem('garbageT3_cst'));
@@ -145,8 +192,10 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     $scope.landfill_t3 = garbage3.landfill_t3.landfill_t3;
     $scope.brn_bk_t3 =  garbage3.brn_bk_t3.brn_bk_t3;
   }
-  $scope.ef_dmp_t3 = 1.0388;
-  $scope.ef_landfill_t3 = 0.7933;
+  $scope.ef_dmp_t3 = coff.garbageT3_cst.ef_dmp_t3;
+  $scope.ef_landfill_t3 = coff.garbageT3_cst.landfill_t3;
+  // $scope.ef_dmp_t3 = 1.0388;
+  // $scope.ef_landfill_t3 = 0.7933;
 
 
   // คำนวณการดูดกลับ ก๊าซเรือนกระจก
@@ -248,7 +297,6 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
   }
 
  
-
   // special = ปกครองพิเศษ, state = นคร
   // city = เมือง
   // district = ตำบล
@@ -368,18 +416,29 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
 
   function formgarbage(){
     if(cityType == "city"){
-      $scope.ef_brn_bk_t1 = 0.2823;
-      $scope.ef_brn_bk_t3 = 0.2823;
+      $scope.ef_brn_bk_t1 = coff.garbageT1_cst.ef_brn_bk_city_t1;
+      $scope.ef_brn_bk_t3 = coff.garbageT3_cst.ef_brn_bk_city_t3;
+      // $scope.ef_brn_bk_t1 = 0.2823;
+      // $scope.ef_brn_bk_t3 = 0.2823;
     }else if(cityType == "district"){
-      $scope.ef_brn_bk_t1 = 0.2795;
-      $scope.ef_brn_bk_t3 = 0.2795;
+      $scope.ef_brn_bk_t1 = coff.garbageT1_cst.ef_brn_bk_district_t1;
+      $scope.ef_brn_bk_t3 = coff.garbageT3_cst.ef_brn_bk_district_t3;
+      // $scope.ef_brn_bk_t1 = 0.2795;
+      // $scope.ef_brn_bk_t3 = 0.2795;
     }else{
-      $scope.ef_brn_bk_t1 = 0.2745;
-      $scope.ef_brn_bk_t3 = 0.2745;
+      $scope.ef_brn_bk_t1 = coff.garbageT1_cst.ef_brn_bk_sp_t1;
+      $scope.ef_brn_bk_t3 = coff.garbageT3_cst.ef_brn_bk_sp_t3;
+      // $scope.ef_brn_bk_t1 = 0.2745;
+      // $scope.ef_brn_bk_t3 = 0.2745;
     }
 
     var garbageT1_cst = {
-      dmp_t1:{ dmp_t1:$scope.dmp_t1, EF:$scope.ef_dmp_t1, ghg_kg_co:($scope.dmp_t1 * $scope.ef_dmp_t1), ghg_t_co:parseFloat((($scope.dmp_t1 * $scope.ef_dmp_t1)/1000).toFixed(2))},
+      dmp_t1:{
+        dmp_t1:$scope.dmp_t1,
+        EF:$scope.ef_dmp_t1,
+        ghg_kg_co:($scope.dmp_t1 * $scope.ef_dmp_t1),
+        ghg_t_co:parseFloat((($scope.dmp_t1 * $scope.ef_dmp_t1)/1000).toFixed(2))
+      },
       landfill_t1:{ landfill_t1:$scope.landfill_t1, EF:$scope.ef_landfill_t1, ghg_kg_co:($scope.landfill_t1 * $scope.ef_landfill_t1), ghg_t_co:parseFloat((($scope.landfill_t1 * $scope.ef_landfill_t1)/1000).toFixed(2))},
       brn_bk_t1:{ brn_bk_t1:$scope.brn_bk_t1, EF:$scope.ef_brn_bk_t1, ghg_kg_co:($scope.brn_bk_t1 * $scope.ef_brn_bk_t1), ghg_t_co:parseFloat((($scope.brn_bk_t1 * $scope.ef_brn_bk_t1)/1000).toFixed(2))},
     };
@@ -417,9 +476,10 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     var mgr_frs_bio_under = (mgr_frs_bio_on * 0.48);
     var mgr_frs_bio_all = (mgr_frs_bio_on + mgr_frs_bio_under);
     var mgr_frs_cab = (mgr_frs_bio_all * 0.47);
-    var mgr_frs_ghg_kg_co = (mgr_frs_cab * (44/12)) * $scope.palm;
+    var mgr_frs_ghg_kg_co = (mgr_frs_cab * (44/12)) * $scope.mgr_frs;
     var mgr_frs_ghg_t_co = parseFloat((mgr_frs_ghg_kg_co / 1000).toFixed(2));
 
+   
     var palm_dmt = ($scope.palm_ccfr/3.14);
     var palm_bio_trk = 0;
     var palm_bio_st = 0;
@@ -447,9 +507,9 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
         bio_lf: tree_bio_lf, bio_on: tree_bio_on, bio_under: tree_bio_under, bio_all: tree_bio_all, cab: tree_cab, ghg_kg_co: tree_ghg_kg_co, ghg_t_co: tree_ghg_t_co
       },
       mgr_frs:{
-        mgr_frs: $scope.tree,
-        h: $scope.tree_h,
-        ccfr: $scope.tree_ccfr,
+        mgr_frs: $scope.mgr_frs,
+        h: $scope.mgr_frs_h,
+        ccfr: $scope.mgr_frs_ccfr,
         diameter: mgr_frs_dmt,
         bio_trk: mgr_frs_bio_trk,
         bio_st: mgr_frs_bio_st,
@@ -495,7 +555,6 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
     };
     tree_cst.total = (tree_cst.tree.ghg_t_co + tree_cst.mgr_frs.ghg_t_co) + (tree_cst.palm.ghg_t_co + tree_cst.vine.ghg_t_co );
     localStorage.setItem('tree_cst', JSON.stringify(tree_cst));
-    // console.log("tree_cst:",tree_cst);
   }
 
 

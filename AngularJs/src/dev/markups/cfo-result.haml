@@ -4,8 +4,8 @@
         .container
             .row.mt-4
                 .col-12.text-center 
-                    %h1 {{ cityType }} {{ gov.city }}
-                    %h2 จังหวัด {{ gov.province }}
+                    %h2 {{ cityType }} {{ gov.city }}
+                    %h1 จังหวัด {{ gov.province }}
         
         .container
             .container.cfo-content-result
@@ -13,26 +13,23 @@
                 .cfo-content-result-ghg
                     .box-circle.text-center
                         %h2.h1-circle {{ ghgTotal | number: 2  }}
-                            %h3 tCO
-                                %sub 2
-                                eq / ปี
+                        <h3>tCO<sub>2</sub>eq / ปี</h3>
                     %button.box-circle-graph{:data-toggle=>"modal", :data-target=>"#cfoGraphModal"}
                         -# %span.material-icons bar_chart
                         %span.material-icons
                             %img{:src=>"img/Graph-icon.svg",:width=>"24"}
 
-            .container.cfo-content-result.mt-2
+            .container.cfo-content-result-bg-tree.mt-2
                 .cfo-content-result-tree
                     .box-circle-tree.text-center
                         %h2.h1-circle {{ ghg_tree_total | number: 2 }}
-                        %h3 tCO
-                            %sub 2
-                            eq / ปี
+                        <h3>tCO<sub>2</sub>eq / ปี</h3>
                     .row.mt-4
                         .col-4
                         .col-7
-                            %h1.mt-2 ปริมาณการปล่อยก๊าซเรือนกระจก
-                            %h2 ปริมาณการดูดกลับ
+                            -# %h1.mt-2 ปริมาณการปล่อยก๊าซเรือนกระจก
+                            -# %h2 ปริมาณการดูดกลับ
+                            %h1.mt-2 ปริมาณการดูดกลับ
                             %h3 การดูดกลับของต้นไม้แต่ละประเภท
                     .row
                         .col-4

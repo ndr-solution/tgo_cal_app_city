@@ -1,4 +1,4 @@
-app.controller("cfoRecommend",function($scope,$rootScope,$location,$window){
+app.controller("cfoRecommend",function($scope,$rootScope,$location,$window,cfoPDF){
 
     var energy = JSON.parse(localStorage.getItem('eng_cst'));
     var fuel = JSON.parse(localStorage.getItem('fuel_cst'));
@@ -19,7 +19,20 @@ app.controller("cfoRecommend",function($scope,$rootScope,$location,$window){
         { "x": "tree", "y": tree.total },
     ];
     $scope.max_value = objArray.reduce((prev, current) => (prev.y > current.y) ? prev : current);
-
+    
+    $scope.createPDF = function(){  
+        PDFhtml = cfoPDF.getPage();
+        console.log("PDFhtml:",PDFhtml);
+        document.addEventListener("deviceready", onDeviceReady, false);
+          function onDeviceReady() {
+              let options = {
+                        documentSize: 'A4',
+                        type: 'share',
+                        fileName: "cfo-test"
+                      };
+            pdf.fromData(PDFhtml, options).then(cordova.plugins.email.open()).catch((err)=>console.err(err));
+        }
+    };
 
 
 });

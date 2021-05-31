@@ -3,11 +3,14 @@
         .container
             .row
                 .col-12.text-center
-                    %h1.pt-5 การส่งเสริมการจัดทำคาร์บอนฟุตพริ้นท์
+                    %h1.pt-5 การคำนวณการปล่อยก๊าซเรือนกระจก
             .row
                 .col-12.col-lg-12.text-center
                     %a{:href=>"http://www.tgo.or.th/2020/index.php/th/"}
                         %img.cfo-logo-tgo{:src=>"img/cfo_logo_tgo.svg"}
+            .row
+                .col-12.text-center
+                    %h2.pt-5 กรุณาเลือกระดับที่ท่านต้องการ                        
         .container.mt-2
             .row
                 .col-12
@@ -17,7 +20,8 @@
                                 .row
                                     .col-12.text-center
                                         %a{:href=>"#/home"}
-                                            %button.btn.btn-home-title.btn-lg  ระดับเมือง (CCF)
+                                            %button.btn.btn-home-title  
+                                                %h2 ระดับเมือง (CCF)
                             .container.mt-2
                                 .row
                                     .col-4.col-md-5.text-right
@@ -34,7 +38,8 @@
                             .container
                                 .row
                                     .col-12.text-center
-                                        %button.btn.btn-home-title.btn-lg{:data-toggle=>"modal", :data-target=>"#cfoHomeModal"} ระดับองค์กร (CFO)
+                                        %button.btn.btn-home-title{:data-toggle=>"modal", :data-target=>"#cfoHomeModal"} 
+                                            %h2 ระดับองค์กร (CFO)
                             .container.mt-2
                                 .row
                                     .col-4.col-md-5.text-right

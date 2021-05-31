@@ -3,10 +3,10 @@
     height: 100px;
 }
   
-.page-footer, .page-footer-space {
+/* .page-footer, .page-footer-space {
     height: 50px;  
 } 
-  
+   */
 .page-footer {
     position: fixed;
     bottom: 0;

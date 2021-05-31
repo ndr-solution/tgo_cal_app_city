@@ -1,10 +1,16 @@
+// $media-xl: "screen and (min-width: 1200px)"
+// $media-lg: "screen and (min-width: 992px) and (max-width: 1199.98px)"
+// $media-md: "screen and (min-width: 768px) and (max-width: 991.98px)"
+// $media-sm: "screen and (min-width: 576px) and (max-width: 767.98px)"
+// $media-xs: "screen and (max-width: 575.98px)"
+
 .cfo-result-wrap
 
 .cfo-content-result
     background-color: #E7D0A6
     border: 3px #721C24 solid
     border-radius: 25px
-
+    
     .cfo-content-result-ghg
         width: 100%
         position: relative
@@ -16,9 +22,10 @@
         @media #{ $media-xs }
             background-size: 72%
             height: 260px
-
         @media #{ $media-sm }
-             height: 260px
+            height: 260px
+            background-size: 70%
+
         
         @media #{ $media-md }
             background-size: 95%
@@ -85,11 +92,11 @@
                     font-size: 6em
 
 
-    // $media-xl: "screen and (min-width: 1200px)"
-    // $media-lg: "screen and (min-width: 992px) and (max-width: 1199.98px)"
-    // $media-md: "screen and (min-width: 768px) and (max-width: 991.98px)"
-    // $media-sm: "screen and (min-width: 576px) and (max-width: 767.98px)"
-    // $media-xs: "screen and (max-width: 575.98px)"
+.cfo-content-result-bg-tree
+    background-color: #C3E6CB
+    border: 3px #155724 solid
+    border-radius: 25px
+
     .cfo-content-result-tree
         width: 100%
         position: relative
@@ -101,9 +108,11 @@
         @media #{ $media-xs }
             min-height: 260px
             margin-bottom: 5px
+            background-size: 92%
 
         @media #{ $media-sm }
              height: 260px
+             background-size: 70%
         
         @media #{ $media-md }
             background-size: 95%
@@ -133,6 +142,8 @@
             padding-top: 1.25em
             z-index: 99
 
+            @media screen and (max-width: 376px)
+                left: -10px
             @media #{ $media-md }
                 width: 13em
                 height: 13em
@@ -160,13 +171,13 @@
 
     .tree-detail
         color: #000000
+        font-weight: bold
         @media #{ $media-xs }
             font-size: 1.3rem
         @media #{ $media-md }
             font-size: 2rem
         @media #{ $media-lg }
             font-size: 2rem
-
     
     .card-tree
         opacity: 0.6

@@ -24,26 +24,37 @@
                                 %p คัดแยกขยะเพื่อรีไซเคิล
                                 %table.table-sm 
                                     %tr
-                                        %td รูป
-                                        %td รูป
-                                        %td รูป
-                                        %td รูป
-                                        %td รูป
+                                        %td.td-color.text-center 
+                                            %img.img-fluid.icon-energy{:src=>"img/paper.png"}
+                                        %td.text-center
+                                            %img.img-fluid.icon-energy{:src=>"img/plastic.png"}
+                                        %td.td-color.text-center
+                                            %img.img-fluid.icon-energy{:src=>"img/aluminum.png"}
+                                        %td.text-center
+                                            %img.img-fluid.icon-energy{:src=>"img/steel.png"}
+                                        %td.td-color
+                                            %img.img-fluid.icon-energy{:src=>"img/glass.png"}
                                     %tr.subtable
-                                        %td กระดาษ 1 ตัน
-                                        %td พลาสติก 1 ตัน
-                                        %td อลูมิเนียม 1 ตัน
-                                        %td เหล็ก 1 ตัน
-                                        %td แก้ว 1 ตัน
-                                    %tr.subtable.table-active
-                                        %td{:colspan=>"5"} 
-                                            %strong ลดการปล่อยก๊าซเรือนกระจก
+                                        %td.td-color.text-center กระดาษ 1 ตัน
+                                        %td.text-center พลาสติก 1 ตัน
+                                        %td.td-color.text-center อลูมิเนียม 1 ตัน
+                                        %td.text-center เหล็ก 1 ตัน
+                                        %td.td-color.text-center แก้ว 1 ตัน 
+                                    -# %tr.subtable
+                                    -#     %td{:colspan=>"5"} 
+                                    -#         %strong ลดการปล่อยก๊าซเรือนกระจก
                                     %tr.subtable
-                                        %td 0.49 ตัน
-                                        %td 0.87 ตัน
-                                        %td 3.38 ตัน
-                                        %td 1.14 ตัน
-                                        %td 0.74 ตัน
+                                        %td.td-color.text-center ลดก๊าซฯ
+                                        %td.text-center ลดก๊าซฯ
+                                        %td.td-color.text-center ลดก๊าซฯ
+                                        %td.text-center ลดก๊าซฯ
+                                        %td.td-color.text-center ลดก๊าซฯ
+                                    %tr.subtable
+                                        %td.td-color.text-center 0.49 ตัน
+                                        %td.text-center 0.87 ตัน
+                                        %td.td-color.text-center 3.38 ตัน
+                                        %td.text-center 1.14 ตัน
+                                        %td.td-color.text-center 0.74 ตัน
 
 
                         %tr

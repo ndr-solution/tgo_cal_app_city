@@ -173,9 +173,10 @@ app.factory("cfoPDF",function($filter){
                         function drawAxisTickColors() {
                             var data = google.visualization.arrayToDataTable([
                                 ['Element', 'Density', { role: 'style' }],
-                                ['ประเภทที่1', ${ ghgType1 }, '#b87333'],            // RGB value
-                                ['ประเภทที่2', ${ ghgType2 }, 'silver'],            // English color name
-                                ['ประเภทที่3', ${ ghgType3 }, 'color: #e5e4e2' ], // CSS-style declaration
+                                ['ประเภทที่1', ${ ghgType1 }, 'color: #b87333'],            // RGB value
+                                ['ประเภทที่2', ${ ghgType2 }, 'color: #b87333'],            // English color name
+                                ['ประเภทที่3', ${ ghgType3 }, 'color: #b87333' ], // CSS-style declaration
+                                ['อื่นๆ', ${ ghg_tree_total }, 'color: #b87333' ], // CSS-style declaration
                               ]);
                               
                               var options = {
