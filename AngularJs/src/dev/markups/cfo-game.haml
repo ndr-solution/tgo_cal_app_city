@@ -35,7 +35,6 @@
                 .container.text-center.p-2
                     .cfo-footer
                         .btn.btn-lg.btn-footer{'ng-click'=>"prevAns()",'ng-show'=>"answer.length !== 0 && answer.length !== 5"} ย้อนกลับ
-                        -# .btn.btn-lg.btn-footer{'ng-click'=>"reloadRoute()",'ng-show'=>"answer.length == 5"} เริ่มเล่นใหม่
                         %a{:href=>"#/",'ng-show'=>"answer.length == 5"}
                             .btn.btn-lg.btn-footer กลับหน้าหลัก
                         %a{:href=>"#/cfo-form-gov",'ng-class'=>" answer.length !== 5 ? 'disabled' : ''"}

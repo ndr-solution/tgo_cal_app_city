@@ -164,9 +164,9 @@ app.factory("cfoPDF",function($filter){
                 <head>
                     <meta charset="utf-8">
                     <title>รายงานผลการวิเคราะห์</title>
-                    <link rel="stylesheet" href="file:///android_asset/www/css/bootstrap.css">
-                    <link rel="stylesheet" href="file:///android_asset/www/css/cfo_pdf_android.css">
-                    <script type="text/javascript" src="file:///android_asset/www/js/loader.js"></script>
+                    <link rel="stylesheet" href="www/css/bootstrap.css">
+                    <link rel="stylesheet" href="www/css/cfo_pdf_ios.css">
+                    <script type="text/javascript" src="www/js/loader.js"></script>
                     <script>
                         google.charts.load('current', {packages: ['corechart', 'bar']});
                         google.charts.setOnLoadCallback(drawAxisTickColors);
@@ -196,17 +196,14 @@ app.factory("cfoPDF",function($filter){
                     </script>
                 </head>
                 <boby>
-                    <div class="page-header" style="text-align: center">
-                        รายงานแสดงผลปริมาณการปล่อยก๊าซเรือนกระจกขององค์กรปกครองส่วนท้องถิ่น<br/>
-                        ผ่านช่องทาง Mobile Application ของ อบก. “Low Carbon City”<br/>
-                        องค์การบริหารจัดการก๊าซเรือนกระจก (องค์การมหาชน)<br/>
-                    </div>
-                    <div class="page-footer">
-                        Low Carbon City
-                    </div>
                     <div class="page-header-space"></div>
                     <div class="container mt-2">
                         <div class="page">
+                            <div class="page-header text-center">
+                                รายงานแสดงผลปริมาณการปล่อยก๊าซเรือนกระจกขององค์กรปกครองส่วนท้องถิ่น<br/>
+                                ผ่านช่องทาง Mobile Application ของ อบก. “Low Carbon City”<br/>
+                                องค์การบริหารจัดการก๊าซเรือนกระจก (องค์การมหาชน)<br/>
+                            </div>
                             <h5>ข้อมูลองค์กรปกครองส่วนท้องถิ่น (${ gov.city }, จังหวัด ${ gov.province })</h5>
                             <div class="row mt-2">
                                 <div class="col-12">
@@ -247,10 +244,17 @@ app.factory("cfoPDF",function($filter){
                                     ${ this.cardEnergy() }                                    
                                 </div>
                             </div>
+                            <div class="page-footer">
+                                Low Carbon City
+                            </div>
 
                         </div>
                         <div class="page">
-                           <br/><br/><br/><br/><br/>
+                            <div class="page-header text-center">
+                                รายงานแสดงผลปริมาณการปล่อยก๊าซเรือนกระจกขององค์กรปกครองส่วนท้องถิ่น<br/>
+                                ผ่านช่องทาง Mobile Application ของ อบก. “Low Carbon City”<br/>
+                                องค์การบริหารจัดการก๊าซเรือนกระจก (องค์การมหาชน)<br/>
+                            </div>
                            <div class="row">
                                 <div class="col-12">
                                     ${ this.cardFuel() }                                    
@@ -266,9 +270,14 @@ app.factory("cfoPDF",function($filter){
                                     ${ this.cardTree() }                                    
                                 </div>
                             </div>
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/><br/> <br/>    
+                            <div class="page-footer">
+                                Low Carbon City
+                            </div>
                         </div>
                     </div>
-                    <div class="page-footer-space"></div>
                 </body>
             </html>`;
             return htmlTag;
