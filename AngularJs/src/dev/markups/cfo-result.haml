@@ -71,9 +71,11 @@
         .container.pb-4
             .row.mt-2
                 .col-12.text-center
+                    %a{:href=>"#/cfo-form/{{ gov.cityType }}"}
+                        %button.btn.btn-lg.btn-result ย้อนกลับ
                     %a{:href=>"#/cfo-recommend"}
-                        %button.btn.btn-result.btn-lg ข้อเสนอแนะ
-                    %button.btn.btn-result.btn-lg.mt-2{'ng-click'=>"createPDF()"} บันทึก PDF
+                        %button.btn.btn-lg.btn-result ข้อเสนอแนะ
+                    %button.btn.btn-lg.btn-result{'ng-click'=>"createPDF()"} บันทึก PDF
     
     -# Modal-graph
     #cfoGraphModal.modal.fade{:tabindex=>"-1", :role=>"dialog", :aria-labelledby=>"cfoGraphModalLabel", :aria-hidden=>"true"}

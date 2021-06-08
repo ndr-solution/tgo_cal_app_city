@@ -44,9 +44,6 @@
             .container-fluid
                 .container.text-center.p-2
                     .cfo-footer.pb-2
-                        %div{:style=>"overflow:auto;"}
-                            %div.text-center
-                        %button#prevBtn.btn-form-cal{:type=>"button",'ng-click'=>"nextPrev(-1)",'ng-show'=>"btnPrev"} ย้อนกลับ
-                        %button#nextBtn.btn-form-cal{:type=>"button",'ng-click'=>"nextPrev(1)",'ng-show'=>"btnNext"} ถัดไป
-                        %button#nextBtn.btn-form-cal{:type=>"button",'ng-click'=>"submit()",'ng-show'=>"btnCal"} คำนวณ
-                        -# %button#nextBtn.btn-form-cal{:type=>"button",'ng-click'=>"submit()"} คำนวณ
+                        %button#prevBtn.btn.btn-lg.btn-footer{:type=>"button",'ng-click'=>"nextPrev(-1)",'ng-show'=>"btnPrev"} ย้อนกลับ
+                        %button#nextBtn.btn.btn-lg.btn-footer{:type=>"button",'ng-click'=>"nextPrev(1)",'ng-show'=>"btnNext"} ถัดไป
+                        %button#nextBtn.btn.btn-lg.btn-footer{:type=>"button",'ng-click'=>"submit()",'ng-show'=>"btnCal"} คำนวณ

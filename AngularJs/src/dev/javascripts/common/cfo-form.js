@@ -168,10 +168,6 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
   $scope.ef_bpd = coff.wst_cst.ef_bpd;
   $scope.bod_res_pub =  coff.wst_cst.bod_res_pub;
   $scope.gwp_res_pub = coff.wst_cst.gwp_res_pub;
-  // $scope.ef_art_pond = 0;
-  // $scope.ef_bpd = 0.0033;  
-  // $scope.bod_res_pub = 110; //set
-  // $scope.gwp_res_pub = 28; //set
 
   // ประเภทที่ 1 ปริมาณขยะ (ดำเนินการเอง)
   var garbage1 =  JSON.parse(localStorage.getItem('garbageT1_cst'));
@@ -194,8 +190,7 @@ app.controller("cfoForm",function($scope,$rootScope,$location,$window){
   }
   $scope.ef_dmp_t3 = coff.garbageT3_cst.ef_dmp_t3;
   $scope.ef_landfill_t3 = coff.garbageT3_cst.landfill_t3;
-  // $scope.ef_dmp_t3 = 1.0388;
-  // $scope.ef_landfill_t3 = 0.7933;
+
 
 
   // คำนวณการดูดกลับ ก๊าซเรือนกระจก
