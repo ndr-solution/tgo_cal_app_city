@@ -25,11 +25,9 @@ app.config(function($routeProvider,$locationProvider,$compileProvider){
     })
     .when("/cfo-recommend",{
       templateUrl : "cfo-recommend.html",
-      // controller : 'cfoRecommendInit'
     })
     .when("/cfo-recom-type/:type",{
       templateUrl : "cfo-recom-type.html",
-      // controller : 'cfoRecommenTypedInit'
     })
 
     // App city
